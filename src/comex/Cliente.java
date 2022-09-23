@@ -1,7 +1,11 @@
 package comex;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Cliente {
-	private int id;
+	
+	private static final AtomicInteger count = new AtomicInteger(0); 
+	private int id ;
 	private String nome;
 	private String cpf;
 	private int telefone;
@@ -52,10 +56,10 @@ public class Cliente {
 		return estado;
 	}
 
-	public Cliente(int id, String nome, String cpf, int telefone, String rua, String numero, String complemento,
+	public Cliente(String nome, String cpf, int telefone, String rua, String numero, String complemento,
 			String bairro, String cidade, String estado) {
 		super();
-		this.id = id;
+		this.id = count.incrementAndGet();
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;

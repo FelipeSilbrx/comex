@@ -2,11 +2,11 @@ package comex;
 
 public class MainCliente {
 	public static void main(String[] args) {
-		Cliente cliente1 = new Cliente(1, "Ana", "A123", 12344321, "rua 123", "21", "C", "Torrões", "Recife",
+		Cliente cliente1 = new Cliente("Ana", "A123", 12344321, "rua 123", "21", "C", "Torrões", "Recife",
 				"Pernambuco");
-		Cliente cliente2 = new Cliente(2, "Eli", "E123", 12122121, "rua abc", "3", "D", "Torre", "Recife",
+		Cliente cliente2 = new Cliente( "Eli", "E123", 12122121, "rua abc", "3", "D", "Torre", "Recife",
 				"Pernambuco");
-		Cliente cliente3 = new Cliente(3, "Gabi", "G123", 19877891, "rua zxc", "4", "A", "Boa Viagem", "Recife",
+		Cliente cliente3 = new Cliente( "Gabi", "G123", 19877891, "rua zxc", "4", "A", "Boa Viagem", "Recife",
 				"Pernambuco");
 
 		System.out.println("------------------ \nCliente: " + cliente1.getNome() + "\nId do Cliente: " + cliente1.getId()

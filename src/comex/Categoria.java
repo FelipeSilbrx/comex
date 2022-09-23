@@ -1,34 +1,31 @@
 package comex;
 
-public class Categoria {
- private int id;
- private String nome;
- private StatusCategoria status;
- 
-public int getId() {
-	return id;
-}
-public void setId(int id) {
-	this.id = id;
-}
-public String getNome() {
-	return nome;
-}
-public void setNome(String nome) {
-	this.nome = nome;
-}
-public StatusCategoria getStatus() {
-	return status;
-}
-public void setStatus(StatusCategoria status) {	
-		this.status = status;	
-}
+import java.util.concurrent.atomic.AtomicInteger;
 
-public Categoria(int id, String nome, StatusCategoria ativa) {
-	super();
-	this.id = id;
-	this.nome = nome;
-	this.status = ativa;
-}
+public class Categoria {
+	
+	private static final AtomicInteger count = new AtomicInteger(0); 
+	private int id;;
+	private String nome;
+	private StatusCategoria status = StatusCategoria.ATIVA;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public StatusCategoria getStatus() {
+		return status;
+	}
+
+	public Categoria(String nome, StatusCategoria ativa) {
+		super();
+		this.id = count.incrementAndGet();
+		this.nome = nome;
+		this.status = ativa;
+	}
 
 }

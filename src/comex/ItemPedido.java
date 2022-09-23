@@ -2,38 +2,46 @@ package comex;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ItemPedido {
+public class ItemPedido implements ValorQuantidade {
 	
 	private static final AtomicInteger count = new AtomicInteger(0);   
 	Produto produto;
 	Pedido pedido;
-	private static int id;
+	private int id ;
 	private double preco_unitario;
 	private int qtd_itens;	
 	private double desconto;
 	private TipoDesconto tipo_desconto = TipoDesconto.NENHUM;
 	
 	public Produto getProduto() {
-		return produto;
+		return this.produto;
 	}
 	public int getId() {
-		return id;
+		return this.id;
 	}
 	public double getPreco_unitario() {
-		return preco_unitario;
+		return this.preco_unitario;
 	}
 	public int getQtd_itens() {
-		return qtd_itens;
+		return this.qtd_itens;
 	}
 	public Pedido getPedido() {
-		return pedido;
+		return this.pedido;
 	}
 	public double getDesconto() {
-		return desconto;
+		return this.desconto;
 	}
 	public TipoDesconto getTipo_desconto() {
-		return tipo_desconto;
+		return this.tipo_desconto;
 	}
+	
+	public double getPreco() {
+		return this.preco_unitario;
+	}
+	
+	public int getQuantidade() {
+		return this.qtd_itens;
+	}	
 	
 	public double PrecoTotalSDesconto () {
 		return this.getPreco_unitario() * this.getQtd_itens();
@@ -49,7 +57,7 @@ public class ItemPedido {
 	}
 	
 	public double TotalCDesconto() {
-		return  PrecoTotalSDesconto()-(getPreco_unitario() * CalculaDesconto());
+		return  this.PrecoTotalSDesconto()-(this.getPreco_unitario() * this.CalculaDesconto());
 	}
 	
 	public ItemPedido(Produto produto, double preco_unitario, int qtd_itens, Pedido pedido,
@@ -61,7 +69,7 @@ public class ItemPedido {
 		this.qtd_itens = qtd_itens;
 		this.pedido = pedido;		
 		this.tipo_desconto = tipo_desconto;
-		this.desconto = getPreco_unitario() * CalculaDesconto();
+		this.desconto = this.getPreco_unitario() * this.CalculaDesconto();
 	}
 	
 }
