@@ -6,7 +6,7 @@ import br.com.comex.modelo.StatusCategoria;
 public class MainCategoria {
 	 public static void main (String[] args) {
 		try {
-			Categoria informatica = new Categoria("I",StatusCategoria.ATIVA);
+			Categoria informatica = new Categoria("INFORMATICA",StatusCategoria.ATIVA);
 			System.out.println("Categoria " + informatica.getNome() + " ("+informatica.getId() +" - "+informatica.getStatus() +")");
 			
 			Categoria moveis = new Categoria("MOVEIS",StatusCategoria.INATIVA);
@@ -17,7 +17,7 @@ public class MainCategoria {
 			
 			
 		}catch(IllegalArgumentException ex){
-			System.out.println("Ih deu Erro!: " + ex.getMessage());
+			System.out.println("\nIh deu Erro!\n-> " + ex.getMessage());			
 			System.out.println("-------------");
 		}
 		

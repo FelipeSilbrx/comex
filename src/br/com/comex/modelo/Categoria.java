@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Categoria {
 	
 	
-	private static final AtomicInteger count = new AtomicInteger(0);
-	private int id;;
-	private String nome;
-	private StatusCategoria status = StatusCategoria.ATIVA;
+	protected static final AtomicInteger count = new AtomicInteger(0);
+	protected int id;;
+	protected String nome;
+	protected StatusCategoria status = StatusCategoria.ATIVA;
 
 	public int getId() {
 		return id;
@@ -29,7 +29,7 @@ public class Categoria {
 			 throw new IllegalArgumentException(nome+". Erro: Id deve ser maior que 0");
 		}
 		if (nome.length()<=3) {
-			 throw new IllegalArgumentException(nome+". Erro: Nome do curso deve ser maior que 3 caracteres");
+			 throw new IllegalArgumentException(nome+". Erro: Nome da categoria deve ser maior que 3 caracteres");
 		}
 		if (status != StatusCategoria.ATIVA && status != StatusCategoria.INATIVA) {
 			 throw new IllegalArgumentException(nome+". Erro: Status diferente de Ativa e Inativa");
