@@ -1,4 +1,4 @@
-package comex;
+package br.com.comex.modelo;
 
 public class ProdutoIsento extends Produto{
 	

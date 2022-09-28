@@ -1,13 +1,13 @@
-package comex;
+package br.com.comex.modelo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Pedido {
 	
-	private static final AtomicInteger count = new AtomicInteger(0);
-	private int id;
-	private String data;
-	Cliente cliente;
+	protected static final AtomicInteger count = new AtomicInteger(0);
+	protected int id;
+	protected String data;
+	public Cliente cliente;
 
 	public int getId() {
 		return this.id;

@@ -1,6 +1,14 @@
-package comex;
+package br.com.comex.main;
 
 import java.text.SimpleDateFormat;
+
+import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ItemPedido;
+import br.com.comex.modelo.Pedido;
+import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.StatusCategoria;
+import br.com.comex.modelo.TipoDesconto;
 
 public class MainItemPedido {
 	public static void main(String[] args) {

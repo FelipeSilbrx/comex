@@ -1,6 +1,9 @@
-package comex;
+package br.com.comex.main;
 
 import java.text.SimpleDateFormat;
+
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.Pedido;
 
 
 public class MainPedido {

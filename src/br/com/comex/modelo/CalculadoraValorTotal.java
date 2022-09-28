@@ -1,9 +1,9 @@
-package comex;
+package br.com.comex.modelo;
 
 public class  CalculadoraValorTotal {
 	
-	private double ValorTotal;
-	private double aux_vt;
+	protected double ValorTotal;
+	protected double aux_vt;
 	
 	public double Calcula(ValorQuantidade v) {
 		double preco = v.getPreco();

@@ -1,17 +1,17 @@
-package comex;
+package br.com.comex.modelo;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ItemPedido implements ValorQuantidade {
 	
-	private static final AtomicInteger count = new AtomicInteger(0);   
-	Produto produto;
-	Pedido pedido;
-	private int id ;
-	private double preco_unitario;
-	private int qtd_itens;	
-	private double desconto;
-	private TipoDesconto tipo_desconto = TipoDesconto.NENHUM;
+	protected static final AtomicInteger count = new AtomicInteger(0);   
+	protected Produto produto;
+	public Pedido pedido;
+	protected int id ;
+	protected double preco_unitario;
+	protected int qtd_itens;	
+	protected double desconto;
+	protected TipoDesconto tipo_desconto = TipoDesconto.NENHUM;
 	
 	public Produto getProduto() {
 		return this.produto;
