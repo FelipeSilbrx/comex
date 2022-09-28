@@ -26,13 +26,13 @@ public class Categoria {
 	public Categoria(String nome, StatusCategoria ativa) {			
 		this.id = count.incrementAndGet();
 		if (id <= 0) {
-			 throw new IllegalArgumentException("Id deve ser maior que 0");
+			 throw new IllegalArgumentException(nome+". Erro: Id deve ser maior que 0");
 		}
 		if (nome.length()<=3) {
-			 throw new IllegalArgumentException("Nome do curso deve ser maior que 3 caracteres");
+			 throw new IllegalArgumentException(nome+". Erro: Nome do curso deve ser maior que 3 caracteres");
 		}
 		if (status != StatusCategoria.ATIVA && status != StatusCategoria.INATIVA) {
-			 throw new IllegalArgumentException("Status diferente de Ativa e Inativa");
+			 throw new IllegalArgumentException(nome+". Erro: Status diferente de Ativa e Inativa");
 		}		
 		this.nome = nome;
 		this.status = ativa;

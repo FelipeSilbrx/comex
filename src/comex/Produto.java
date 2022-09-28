@@ -55,8 +55,24 @@ public class Produto implements ValorQuantidade {
 
 
 	public Produto(String nome, double preco_unitario, int qtd_estoque, Categoria categoriaProduto) {
-		super();
+		
 		this.id = count.incrementAndGet();
+		if (id <= 0) {
+			 throw new IllegalArgumentException(nome+". Erro: Id deve ser maior que 0");
+		}
+		if (nome.length()<=5) {
+			 throw new IllegalArgumentException(nome+". Erro: Nome do curso deve ser maior que 3 caracteres");
+		}
+		if (preco_unitario <= 0) {
+			 throw new IllegalArgumentException(nome+". Erro: Preco deve ser maior que 0");
+		}
+		if (qtd_estoque <= 0) {
+			 throw new IllegalArgumentException(nome+". Erro: Quantidade de estoque menor que 0");
+		}
+		if (categoriaProduto == null) {
+			 throw new IllegalArgumentException(nome+". Erro: A categoria não pode ser vazia");
+		}
+		
 		this.nome = nome;
 		this.preco_unitario = preco_unitario;
 		this.qtd_estoque = qtd_estoque;
