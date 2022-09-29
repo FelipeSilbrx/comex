@@ -35,9 +35,13 @@ public class Categoria {
 			 throw new IllegalArgumentException(nome+". Erro: Status diferente de Ativa e Inativa");
 		}		
 		this.nome = nome;
-		this.status = ativa;
+		this.status = ativa;		
 		
-		
+	}
+
+	@Override
+	public String toString() {
+		return "Categoria " + getNome() + " ("+getId() +" - "+getStatus() +")";
 	}
 	
 	

@@ -79,5 +79,8 @@ public class Produto implements ValorQuantidade {
 		this.categoriaProduto = categoriaProduto;
 
 	}
-
+	@Override
+	public String toString() {
+		return "\nProduto: "+"\nId: "+ getId() +"\nNome do produto: "+getNome()+"\nValor do Produto: "+getPreco_unitario()+ "\nQuantidade de estoque: "+ getQtd_estoque() +"\nCategoria: "+categoriaProduto.getNome()+"\nValor total do estoque: "+CalcularValorEstoque()+"\nValor do Imposto: "+CalcularImpostoUnitario();
+	}
 }

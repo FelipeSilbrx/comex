@@ -7,13 +7,12 @@ public class MainCategoria {
 	 public static void main (String[] args) {
 		try {
 			Categoria informatica = new Categoria("INFORMATICA",StatusCategoria.ATIVA);
-			System.out.println("Categoria " + informatica.getNome() + " ("+informatica.getId() +" - "+informatica.getStatus() +")");
-			
+			System.out.println(informatica.toString());	
 			Categoria moveis = new Categoria("MOVEIS",StatusCategoria.INATIVA);
-			System.out.println("Categoria " + moveis.getNome() + " ("+moveis.getId() +" - "+moveis.getStatus() +")");
+			System.out.println(moveis.toString());
 			
 			Categoria livros = new Categoria("LIVROS",StatusCategoria.ATIVA);
-			System.out.println("Categoria " + livros.getNome() + " ("+livros.getId() +" - "+livros.getStatus() +")");
+			System.out.println(livros.toString());
 			
 			
 		}catch(IllegalArgumentException ex){

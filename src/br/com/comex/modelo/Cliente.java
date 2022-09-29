@@ -100,5 +100,12 @@ public class Cliente {
 		this.cidade = cidade;
 		this.estado = estado;
 	}
-
+	@Override
+	public String toString() {
+		return "------------------ \nCliente: " + getNome() + "\nId do Cliente: " + getId()
+		+ "\nCPF do cliente: " + getCpf() + "\nTelefone: " + getTelefone() + "\nRua: "
+		+getRua() + "\nNúmero do endereço: " + getNumero() + "\nComplemento do endereço: "
+		+ getBairro() + "\nCidade: " + getCidade() + "\nEstado: " + getEstado()
+		;
+	}
 }

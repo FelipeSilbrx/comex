@@ -61,9 +61,8 @@ public class ItemPedido implements ValorQuantidade {
 	}
 	
 	public ItemPedido(Produto produto, double preco_unitario, int qtd_itens, Pedido pedido,
-			TipoDesconto tipo_desconto) {
-		super();
-		this.id = count.incrementAndGet();
+			TipoDesconto tipo_desconto) {		
+		this.id = count.incrementAndGet();		
 		this.produto = produto;		
 		this.preco_unitario = preco_unitario;
 		this.qtd_itens = qtd_itens;
@@ -71,5 +70,10 @@ public class ItemPedido implements ValorQuantidade {
 		this.tipo_desconto = tipo_desconto;
 		this.desconto = this.getPreco_unitario() * this.CalculaDesconto();
 	}
-	
+	public String toString() {
+		return "-------------\nNome do Cliente: " + pedido.cliente.getNome() + "\nItem Pedido: "
+				+ getId() + "\nQuantidade de item: " + getQtd_itens() + "\nValor do item: "
+				+ getPreco_unitario() + "\nValor total da compra: " + TotalCDesconto()
+				+ "\nDesconto aplicado: " + getDesconto() + "\n-------------";
+	}
 }

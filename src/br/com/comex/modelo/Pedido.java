@@ -27,5 +27,11 @@ public class Pedido {
 		this.data = data;
 		this.cliente = cliente;
 	}
-
+	@Override
+	public String toString() {
+		return "------------------\nPedido \nId: "+getId()
+		+"\nData do Pedido: "+getData()+"\nNome do Cliente: "
+		+cliente.getNome()
+		+ "\n-----------------";
+	}
 }
