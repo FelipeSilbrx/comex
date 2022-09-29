@@ -21,11 +21,11 @@ public class MainCalculadoraValorTotal {
 		Produto produto1 = new Produto("Notebook Samsung", 3523.00, 80, informatica);
 		Produto produto2 = new Produto("Clean Architecture", 102.90, 52, livros);
 
-		Cliente cliente1 = new Cliente("Ana Carolina", "A123", 12344321, "rua 123", "21", "C", "Torrões", "Recife",
+		Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "81 9 88785225", "rua 123", "21", "CASA C", "Torrões", "Recife",
 				"Pe");
-		Cliente cliente2 = new Cliente("Elizabeth", "E123", 12122121, "rua abc", "03", "D", "Torre", "Recife",
+		Cliente cliente2 = new Cliente("Elizabeth", "222.222.222-22", "81 9 87785825", "rua abc", "S/N", "CASA D", "Torre", "Recife",
 				"Pe");
-		Cliente cliente3 = new Cliente("Gabriela", "G123", 19877891, "rua zxc", "04", "A", "Boa Viagem", "Recife",
+		Cliente cliente3 = new Cliente("Gabriela", "333.333.333-22", "82 9 87785825", "rua zxc", "04", "S/N", "Boa Viagem", "Recife",
 				"Pe");
 		Pedido pedido1 = new Pedido(spf.format(22 - 02 - 2022), cliente1);
 		Pedido pedido2 = new Pedido(spf.format(19 - 10 - 2019), cliente2);

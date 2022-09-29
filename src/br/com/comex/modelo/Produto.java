@@ -57,6 +57,9 @@ public class Produto implements ValorQuantidade {
 	public Produto(String nome, double preco_unitario, int qtd_estoque, Categoria categoriaProduto) {
 		
 		this.id = count.incrementAndGet();
+		if(nome.substring(0,1).matches("[0-9]*")){
+			throw new IllegalArgumentException(nome+". Erro: Não pode começar com números de 0 à 9");
+		}
 		if (id <= 0) {
 			 throw new IllegalArgumentException(nome+". Erro: Id deve ser maior que 0");
 		}

@@ -6,7 +6,7 @@ import br.com.comex.modelo.StatusCategoria;
 public class MainCategoria {
 	 public static void main (String[] args) {
 		try {
-			Categoria informatica = new Categoria("INFORMATICA",StatusCategoria.ATIVA);
+			Categoria informatica = new Categoria("IFORMATICA",StatusCategoria.ATIVA);
 			System.out.println(informatica.toString());	
 			Categoria moveis = new Categoria("MOVEIS",StatusCategoria.INATIVA);
 			System.out.println(moveis.toString());
