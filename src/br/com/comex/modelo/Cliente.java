@@ -8,7 +8,7 @@ public class Cliente {
 	protected int id;
 	protected String nome;
 	protected String cpf;
-	protected int telefone;
+	protected String telefone;
 	protected String rua;
 	protected String numero;
 	protected String complemento;
@@ -28,7 +28,7 @@ public class Cliente {
 		return cpf;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
@@ -55,6 +55,8 @@ public class Cliente {
 	public String getEstado() {
 		return estado;
 	}
+	
+	
 
 	public Cliente(String nome, String cpf, String telefone, String rua, String numero, String complemento,
 			String bairro, String cidade, String estado) {
@@ -71,25 +73,25 @@ public class Cliente {
 		if (nome.length()<=5) {
 			 throw new IllegalArgumentException(nome+". Erro: Tamanho do nome do cliente que está invalido");
 		}		
-		if (cpf.length() >= 11 && cpf.length() <= 14) {
+		if (cpf.length() <= 11 && cpf.length() >= 14) {
 			 throw new IllegalArgumentException(nome+". Erro: Tamanho do CPF está errado");
 		}
-		if(cpf.matches ("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")) {
+		if(!cpf.matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")) {
 			throw new IllegalArgumentException(nome+". Erro: A formatação do CPF está errada. Ex: 000.000.000-00");
 		}
-		if (telefone.length() >= 11 && telefone.length() <= 16) {
+		if (telefone.length() <= 11 && telefone.length() >= 16) {
 			 throw new IllegalArgumentException(nome+". Erro: Telefone é inválido");
 		}
-		if (!telefone.matches("^([0-9]{2}) ?[0-9]{1} ?([0-9]{2}-?)$")) {
+		/*if (!telefone.matches("([0-9]{2}) [0-9]{1} [0-9]{2}-[0-9]{2}")) {
 			 throw new IllegalArgumentException(nome+". Erro: Telefone está formatado errado. Ex: (99) 9 9999-9999");
-		}
+		}*/
 		if (rua.length() <= 5) {
 			 throw new IllegalArgumentException(nome+". Erro: Rua está inválida");
 		}
 		if (numero.length() <= 1 ) {
 			 throw new IllegalArgumentException(nome+". Erro: Numero do endereço errado");
 		}
-		if (complemento.length() <= 1 ) {
+		if (complemento.length() <= 2 ) {
 			 throw new IllegalArgumentException(nome+". Erro: Complemento está errado");
 		}
 		if (bairro.length( )<= 1) {
@@ -97,6 +99,9 @@ public class Cliente {
 		}
 		if (cidade.length() <= 1) {
 			 throw new IllegalArgumentException(nome+". Erro: Cidade errada");
+		}
+		if (estadoVerificado(estado) != true) {
+			throw new IllegalArgumentException(nome+". Erro: Estado não encontrado");
 		}
 		if (estado.length() != 2) {
 			 throw new IllegalArgumentException(nome+". Erro: Estado errado");
@@ -119,5 +124,18 @@ public class Cliente {
 				+ getCpf() + "\nTelefone: " + getTelefone() + "\nRua: " + getRua() + "\nNúmero do endereço: "
 				+ getNumero() + "\nComplemento do endereço: " + getBairro() + "\nCidade: " + getCidade() + "\nEstado: "
 				+ getEstado();
+	}
+	
+	public boolean estadoVerificado(String ev) {
+		ev.toLowerCase();
+		if (ev == "AC" || ev == "AL" || ev == "AP" || ev == "AM" || ev == "BA" || ev == "CE" || 
+			ev == "DF" || ev == "ES" || ev == "GO" || ev == "MA" || ev == "MT" || ev == "MS" ||
+			ev == "MG" || ev == "PA" || ev == "PB" || ev == "PR" || ev == "PE" || ev == "PI" || 
+			ev == "RJ" || ev == "RN" || ev == "RS" || ev == "RO" || ev == "RR" || ev == "SC" ||
+			ev == "SP" || ev == "SE" || ev == "TO"){
+			return true;			
+		}
+		else {}
+		return false;
 	}
 }

@@ -5,12 +5,12 @@ import br.com.comex.modelo.Cliente;
 public class MainCliente {
 	public static void main(String[] args) {
 		try {
-			Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "81 9 88785225", "rua 123", "21", "CASA C", "Torrões", "Recife",
-					"Pe");
-			Cliente cliente2 = new Cliente("Elizabeth", "222.222.222-22", "81 9 87785825", "rua abc", "S/N", "CASA D", "Torre", "Recife",
-					"Pe");
-			Cliente cliente3 = new Cliente("Gabriela", "333.333.333-22", "82 9 87785825", "rua zxc", "04", "S/N", "Boa Viagem", "Recife",
-					"Pe");
+			Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "(81) 9 8878-5225", "rua 123", "21", "CASA C", "Torrões", "Recife",
+					"PE");
+			Cliente cliente2 = new Cliente("Elizabeth", "222.222.222-22", "(81) 9 8778-5825", "rua abc", "S/N", "CASA D", "Torre", "Recife",
+					"CE");
+			Cliente cliente3 = new Cliente("Gabriela", "333.333.333-22", "(82) 9 8778-5825", "rua zxc", "04", "S/N", "Boa Viagem", "Recife",
+					"SC");
 			System.out.println(cliente1.toString());
 			System.out.println("\n-----------------");
 			System.out.println(cliente2.toString());
