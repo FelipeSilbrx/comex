@@ -65,46 +65,46 @@ public class Cliente {
 		this.id = count.incrementAndGet();
 		
 		if(nome.substring(0,1).matches("[0-9]*")){
-			throw new IllegalArgumentException(nome+". Erro: Nome do cliente não pode começar com números de 0 à 9");
+			throw new ComexException(nome+". Erro: Nome do cliente não pode começar com números de 0 à 9");
 		}
 		if (id <= 0) {
-			 throw new IllegalArgumentException(nome+". Erro: Id  do cliente não deve ser menor 0");
+			 throw new ComexException(nome+". Erro: Id  do cliente não deve ser menor 0");
 		}
 		if (nome.length()<=5) {
-			 throw new IllegalArgumentException(nome+". Erro: Tamanho do nome do cliente que está invalido");
+			 throw new ComexException(nome+". Erro: Tamanho do nome do cliente que está invalido");
 		}		
 		if (cpf.length() <= 11 && cpf.length() >= 14) {
-			 throw new IllegalArgumentException(nome+". Erro: Tamanho do CPF está errado");
+			 throw new ComexException(nome+". Erro: Tamanho do CPF está errado");
 		}
 		if(!cpf.matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")) {
-			throw new IllegalArgumentException(nome+". Erro: A formatação do CPF está errada. Ex: 000.000.000-00");
+			throw new ComexException(nome+". Erro: A formatação do CPF está errada. Ex: 000.000.000-00");
 		}
 		if (telefone.length() <= 11 && telefone.length() >= 16) {
-			 throw new IllegalArgumentException(nome+". Erro: Telefone é inválido");
+			 throw new ComexException(nome+". Erro: Telefone é inválido");
 		}
 		/*if (!telefone.matches("([0-9]{2}) [0-9]{1} [0-9]{2}-[0-9]{2}")) {
 			 throw new IllegalArgumentException(nome+". Erro: Telefone está formatado errado. Ex: (99) 9 9999-9999");
 		}*/
 		if (rua.length() <= 5) {
-			 throw new IllegalArgumentException(nome+". Erro: Rua está inválida");
+			 throw new ComexException(nome+". Erro: Rua está inválida");
 		}
 		if (numero.length() <= 1 ) {
-			 throw new IllegalArgumentException(nome+". Erro: Numero do endereço errado");
+			 throw new ComexException(nome+". Erro: Numero do endereço errado");
 		}
 		if (complemento.length() <= 2 ) {
-			 throw new IllegalArgumentException(nome+". Erro: Complemento está errado");
+			 throw new ComexException(nome+". Erro: Complemento está errado");
 		}
 		if (bairro.length( )<= 1) {
-			 throw new IllegalArgumentException(nome+". Erro: Bairro do errado");
+			 throw new ComexException(nome+". Erro: Bairro do errado");
 		}
 		if (cidade.length() <= 1) {
-			 throw new IllegalArgumentException(nome+". Erro: Cidade errada");
+			 throw new ComexException(nome+". Erro: Cidade errada");
 		}
 		if (estadoVerificado(estado) != true) {
-			throw new IllegalArgumentException(nome+". Erro: Estado não encontrado");
+			throw new ComexException(nome+". Erro: Estado não encontrado");
 		}
 		if (estado.length() != 2) {
-			 throw new IllegalArgumentException(nome+". Erro: Estado errado");
+			 throw new ComexException(nome+". Erro: Estado errado");
 		}		
 		
 		this.nome = nome;

@@ -1,11 +1,14 @@
 package br.com.comex.modelo;
 
-public class ComexException {
+public class ComexException extends RuntimeException {
 	String mensagem;
-
-	public ComexException(String mensagem) {
+	
+	public ComexException() {
 		super();
-		this.mensagem = mensagem;
+	}
+	public ComexException(String mensagem) {
+		super(mensagem);
+		
 	}
 	
 	

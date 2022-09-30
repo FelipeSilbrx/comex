@@ -1,13 +1,12 @@
 package br.com.comex.main;
 
 import java.text.SimpleDateFormat;
-
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Categoria.Status;
 import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.StatusCategoria;
 import br.com.comex.modelo.TipoDesconto;
 
 public class MainItemPedido {
@@ -15,9 +14,9 @@ public class MainItemPedido {
 		try {
 			SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
 
-			Categoria informatica = new Categoria("INFORMÁTICA", StatusCategoria.ATIVA);
-			Categoria moveis = new Categoria("MÓVEIS", StatusCategoria.INATIVA);
-			Categoria livros = new Categoria("LIVROS", StatusCategoria.ATIVA);
+			Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
+			Categoria moveis = new Categoria("MÓVEIS", Status.INATIVA);
+			Categoria livros = new Categoria("LIVROS", Status.ATIVA);
 
 			Produto produto1 = new Produto( "Notebook Samsung", 3523.00, 80, informatica);
 			Produto produto2 = new Produto( "Clean Architecture", 102.90, 52, livros);

@@ -4,19 +4,19 @@ import java.text.SimpleDateFormat;
 
 import br.com.comex.modelo.CalculadoraValorTotal;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Categoria.Status;
 import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.StatusCategoria;
 import br.com.comex.modelo.TipoDesconto;
 
 public class MainCalculadoraValorTotal {
 	public static void main(String[] args) {
 		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
 
-		Categoria informatica = new Categoria("INFORMÁTICA", StatusCategoria.ATIVA);
-		Categoria livros = new Categoria("LIVROS", StatusCategoria.INATIVA);
+		Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
+		Categoria livros = new Categoria("LIVROS", Status.INATIVA);
 
 		Produto produto1 = new Produto("Notebook Samsung", 3523.00, 80, informatica);
 		Produto produto2 = new Produto("Clean Architecture", 102.90, 52, livros);

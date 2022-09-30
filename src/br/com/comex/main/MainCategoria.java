@@ -1,17 +1,19 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.StatusCategoria;
+import br.com.comex.modelo.Categoria.Status;
+
 
 public class MainCategoria {
 	 public static void main (String[] args) {
 		try {
-			Categoria informatica = new Categoria("IFORMATICA",StatusCategoria.ATIVA);
+			Categoria informatica = new Categoria("IFORMATICA",Status.ATIVA);
 			System.out.println(informatica.toString());	
-			Categoria moveis = new Categoria("MOVEIS",StatusCategoria.INATIVA);
+			
+			Categoria moveis = new Categoria("MOVEIS",Status.INATIVA);
 			System.out.println(moveis.toString());
 			
-			Categoria livros = new Categoria("LIVROS",StatusCategoria.ATIVA);
+			Categoria livros = new Categoria("LIVROS",Status.ATIVA);
 			System.out.println(livros.toString());
 			
 			

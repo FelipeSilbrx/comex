@@ -1,6 +1,7 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ComexException;
 
 public class MainCliente {
 	public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class MainCliente {
 			System.out.println("\n-----------------");
 			System.out.println(cliente3.toString());
 			System.out.println("\n-----------------");
-		}catch (IllegalArgumentException ex){
+		}catch (ComexException ex){
 			System.out.println("\nIh deu Erro!\n-> " + ex.getMessage());			
 			System.out.println("-------------");
 		}

@@ -1,15 +1,16 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Categoria.Status;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ProdutoIsento;
-import br.com.comex.modelo.StatusCategoria;
+
 
 public class MainProduto {
 	public static void main (String[] args) {
 		try {
-			Categoria informatica = new Categoria("INFORMÁTICA",StatusCategoria.ATIVA);		
-			Categoria livros = new Categoria("LIVROS",StatusCategoria.ATIVA);
+			Categoria informatica = new Categoria("INFORMÁTICA",Status.ATIVA);		
+			Categoria livros = new Categoria("LIVROS",Status.ATIVA);
 			
 			Produto produto1 = new Produto("Notebook Samsung", 3523.00, 1, informatica);
 			System.out.printf(produto1.toString());
