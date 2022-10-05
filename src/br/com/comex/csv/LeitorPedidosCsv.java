@@ -12,13 +12,13 @@ import java.util.Scanner;
 public class LeitorPedidosCsv {
 
 		public List<PedidoCsv> lerPedidosCsv() throws FileNotFoundException  {
+			
 			List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 			
 			InputStream inputStream = new FileInputStream("pedidos.csv.txt");
 			Scanner scanner = new Scanner(inputStream);
 			
 			scanner.nextLine();	
-		
 		
 		while(scanner.hasNextLine()) {
 			String linha = scanner.nextLine();

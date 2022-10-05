@@ -12,6 +12,7 @@ public class MainLeitorPedidoCsv {
 		List<PedidoCsv>  pedidosCsv = leitorPedidoCsv.lerPedidosCsv();
 		
 		System.out.println("Total de pedidos: "+pedidosCsv.size());
+		
 	}
 
 }
