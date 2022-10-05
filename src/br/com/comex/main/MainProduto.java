@@ -2,6 +2,7 @@ package br.com.comex.main;
 
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Categoria.Status;
+import br.com.comex.modelo.ComexException;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.ProdutoIsento;
 
@@ -26,7 +27,7 @@ public class MainProduto {
 			System.out.printf(produtoIsento1.toString());
 			System.out.printf("\n-------------------");
 		}
-		catch(IllegalArgumentException ex){
+		catch(ComexException ex){
 			System.out.println("\nIh deu Erro!\n-> " + ex.getMessage());			
 			System.out.println("-------------");
 			System.out.println(ex.getStackTrace());

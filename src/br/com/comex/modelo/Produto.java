@@ -57,23 +57,23 @@ public class Produto implements ValorQuantidade {
 	public Produto(String nome, double preco_unitario, int qtd_estoque, Categoria categoriaProduto) {
 		
 		this.id = count.incrementAndGet();
-		if(nome.substring(0,1).matches("[0-9]*")){
-			throw new IllegalArgumentException(nome+". Erro: Não pode começar com números de 0 à 9");
+		if(nome==null || nome.substring(0,1).matches("[0-9]*")){
+			throw new ComexException(nome+". Erro: Não pode começar com números de 0 à 9");
 		}
 		if (id <= 0) {
-			 throw new IllegalArgumentException(nome+". Erro: Id deve ser maior que 0");
+			 throw new ComexException(nome+". Erro: Id deve ser maior que 0");
 		}
 		if (nome.length()<=5) {
-			 throw new IllegalArgumentException(nome+". Erro: Nome do curso deve ser maior que 3 caracteres");
+			 throw new ComexException(nome+". Erro: Nome do curso deve ser maior que 3 caracteres");
 		}
 		if (preco_unitario <= 0) {
-			 throw new IllegalArgumentException(nome+". Erro: Preco deve ser maior que 0");
+			 throw new ComexException(nome+". Erro: Preco deve ser maior que 0");
 		}
 		if (qtd_estoque <= 0) {
-			 throw new IllegalArgumentException(nome+". Erro: Quantidade de estoque menor que 0");
+			 throw new ComexException(nome+". Erro: Quantidade de estoque menor que 0");
 		}
 		if (categoriaProduto == null) {
-			 throw new IllegalArgumentException(nome+". Erro: A categoria não pode ser vazia");
+			 throw new ComexException(nome+". Erro: A categoria não pode ser vazia");
 		}
 		
 		this.nome = nome;

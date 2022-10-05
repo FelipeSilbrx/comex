@@ -64,7 +64,7 @@ public class Cliente {
 		
 		this.id = count.incrementAndGet();
 		
-		if(nome.substring(0,1).matches("[0-9]*")){
+		if(nome.substring(0).matches("[0-9]")){
 			throw new ComexException(nome+". Erro: Nome do cliente não pode começar com números de 0 à 9");
 		}
 		if (id <= 0) {
@@ -82,28 +82,26 @@ public class Cliente {
 		if (telefone.length() <= 11 && telefone.length() >= 16) {
 			 throw new ComexException(nome+". Erro: Telefone é inválido");
 		}
-		/*if (!telefone.matches("([0-9]{2}) [0-9]{1} [0-9]{2}-[0-9]{2}")) {
-			 throw new IllegalArgumentException(nome+". Erro: Telefone está formatado errado. Ex: (99) 9 9999-9999");
-		}*/
-		if (rua.length() <= 5) {
+		
+		if (rua == null || rua.length() <= 5) {
 			 throw new ComexException(nome+". Erro: Rua está inválida");
 		}
-		if (numero.length() <= 1 ) {
+		if (numero==null || numero.length() <= 1 ) {
 			 throw new ComexException(nome+". Erro: Numero do endereço errado");
 		}
 		if (complemento.length() <= 2 ) {
 			 throw new ComexException(nome+". Erro: Complemento está errado");
 		}
-		if (bairro.length( )<= 1) {
+		if (bairro==null || bairro.length( )<= 1) {
 			 throw new ComexException(nome+". Erro: Bairro do errado");
 		}
-		if (cidade.length() <= 1) {
+		if (cidade==null || cidade.length() <= 1) {
 			 throw new ComexException(nome+". Erro: Cidade errada");
 		}
 		if (estadoVerificado(estado) != true) {
 			throw new ComexException(nome+". Erro: Estado não encontrado");
 		}
-		if (estado.length() != 2) {
+		if (estado==null || estado.length() != 2) {
 			 throw new ComexException(nome+". Erro: Estado errado");
 		}		
 		

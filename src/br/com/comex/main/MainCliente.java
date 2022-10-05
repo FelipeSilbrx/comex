@@ -6,7 +6,7 @@ import br.com.comex.modelo.ComexException;
 public class MainCliente {
 	public static void main(String[] args) {
 		try {
-			Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "(81) 9 8878-5225", "rua 123", "21", "CASA C", "Torrões", "Recife",
+			Cliente cliente1 = new Cliente("Anna Carolina", "111.111.111-11", "(81) 9 8878-5225", "rua 123", "21", "CASA C", "Torrões", "Recife",
 					"PE");
 			Cliente cliente2 = new Cliente("Elizabeth", "222.222.222-22", "(81) 9 8778-5825", "rua abc", "S/N", "CASA D", "Torre", "Recife",
 					"CE");
