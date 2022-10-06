@@ -6,6 +6,7 @@ import java.util.List;
 import br.com.comex.csv.LeitorPedidosCsv;
 import br.com.comex.csv.PedidoCsv;
 import br.com.comex.modelo.MontanteTotalVendas;
+import br.com.comex.modelo.PedidoMaisBaratoEMaisCaro;
 import br.com.comex.modelo.TotalCategorias;
 import br.com.comex.modelo.TotalProdutosVendidos;
 
@@ -18,12 +19,13 @@ public class MainLeitorPedidoCsv {
 		TotalProdutosVendidos tpv = new TotalProdutosVendidos();
 		TotalCategorias tc = new TotalCategorias();
 		MontanteTotalVendas mtv = new MontanteTotalVendas();		
+		PedidoMaisBaratoEMaisCaro pmbec = new PedidoMaisBaratoEMaisCaro();
 		
 		System.out.println("Total de pedidos: "+pedidosCsv.size());
 		System.out.println("Total de produtos vendidos: "+tpv.calcularProdutos(pedidosCsv));
 		System.out.println("Total de categorias: "+tc.calcularCategorias(pedidosCsv));
 		System.out.println("Montante de vendas: " + mtv.calcularMontante(pedidosCsv));
-		
+		pmbec.compararBaratoECaro(pedidosCsv);
 	}
 
 }
