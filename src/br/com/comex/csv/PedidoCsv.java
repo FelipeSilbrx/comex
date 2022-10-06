@@ -10,7 +10,7 @@ public class PedidoCsv {
 
     private String data;
 
-    public PedidoCsv(String categoria, String produto, String cliente, String preco, String quantidade, String data) {
+    public PedidoCsv(String categoria, String produto,String preco , String quantidade,String data , String cliente) {
         this.categoria = categoria;
         this.produto = produto;
         this.cliente = cliente;

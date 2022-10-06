@@ -15,7 +15,7 @@ public class LeitorPedidosCsv {
 			
 			List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 			
-			InputStream inputStream = new FileInputStream("pedidos.csv.txt");
+			InputStream inputStream = new FileInputStream("pedidos.csv");
 			Scanner scanner = new Scanner(inputStream);
 			
 			scanner.nextLine();	
