@@ -5,6 +5,7 @@ import java.util.List;
 
 import br.com.comex.csv.LeitorPedidosCsv;
 import br.com.comex.csv.PedidoCsv;
+import br.com.comex.modelo.TotalCategorias;
 import br.com.comex.modelo.TotalProdutosVendidos;
 
 
@@ -12,10 +13,13 @@ public class MainLeitorPedidoCsv {
 	public static void main(String[] args) throws FileNotFoundException  {
 		LeitorPedidosCsv leitorPedidoCsv = new LeitorPedidosCsv();
 		List<PedidoCsv>  pedidosCsv = leitorPedidoCsv.lerPedidosCsv();
+		
 		TotalProdutosVendidos tpv = new TotalProdutosVendidos();
+		TotalCategorias tc = new TotalCategorias();
 		
 		System.out.println("Total de pedidos: "+pedidosCsv.size());
-		System.out.println("Total de produtos vendidos: "+tpv.calculaProdutos(pedidosCsv));
+		System.out.println("Total de produtos vendidos: "+tpv.calcularProdutos(pedidosCsv));
+		System.out.println("Total de categorias: "+tc.calcularCategorias(pedidosCsv));
 		
 	}
 

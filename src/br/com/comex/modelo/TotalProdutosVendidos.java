@@ -6,12 +6,14 @@ import br.com.comex.csv.PedidoCsv;
 
 public class TotalProdutosVendidos {	
 
-	public double calculaProdutos(List<PedidoCsv> pedidos) {
-		double aux = 0;
+	public int calcularProdutos(List<PedidoCsv> pedidos) {
+		int somaProdutos = 0;
 		
 		for (int i=0 ; i <pedidos.size(); i++) {
-			aux += Integer.valueOf(pedidos.get(i).getQuantidade()) ;
+			somaProdutos += Integer.valueOf(pedidos.get(i).getQuantidade()) ;
 		}
-		return aux;
+		return somaProdutos;
 	}
+	
+	
 }
