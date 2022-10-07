@@ -2,6 +2,8 @@ package br.com.comex.main;
 
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 import br.com.comex.csv.LeitorPedidosCsv;
 import br.com.comex.csv.PedidoCsv;
@@ -21,10 +23,12 @@ public class MainLeitorPedidoCsv {
 		MontanteTotalVendas mtv = new MontanteTotalVendas();		
 		PedidoMaisBaratoEMaisCaro pmbec = new PedidoMaisBaratoEMaisCaro();
 		
+		String valorFormatado;
+		
 		System.out.println("Total de pedidos: "+pedidosCsv.size());
 		System.out.println("Total de produtos vendidos: "+tpv.calcularProdutos(pedidosCsv));
-		System.out.println("Total de categorias: "+tc.calcularCategorias(pedidosCsv));
-		System.out.println("Montante de vendas: " + mtv.calcularMontante(pedidosCsv));
+		System.out.println("Total de categorias: "+ tc.calcularCategorias(pedidosCsv));
+		System.out.println("Montante de vendas: " + NumberFormat.getCurrencyInstance().format(mtv.calcularMontante(pedidosCsv)));
 		pmbec.compararBaratoECaro(pedidosCsv);
 	}
 

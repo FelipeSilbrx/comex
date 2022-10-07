@@ -1,6 +1,7 @@
 package br.com.comex.modelo;
 
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import br.com.comex.csv.PedidoCsv;
@@ -20,8 +21,8 @@ public class PedidoMaisBaratoEMaisCaro{
 				menorProduto = pedidoCsv.getProduto();
 			}
 		}
-		System.out.println("Pedido mais barato: "+barato+ " ("+menorProduto+")"
-				+"\nPedido mais caro: "+caro+ " ("+maiorProduto+")");		
+		System.out.println("Pedido mais barato: "+NumberFormat.getCurrencyInstance().format(barato)+ " ("+menorProduto+")"
+				+"\nPedido mais caro: "+NumberFormat.getCurrencyInstance().format(caro)+ " ("+maiorProduto+")");		
 		
 	}
 
