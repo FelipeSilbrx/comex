@@ -22,9 +22,7 @@ public class MainLeitorPedidoCsv {
 		TotalCategorias tc = new TotalCategorias();
 		MontanteTotalVendas mtv = new MontanteTotalVendas();		
 		PedidoMaisBaratoEMaisCaro pmbec = new PedidoMaisBaratoEMaisCaro();
-		
-		String valorFormatado;
-		
+				
 		System.out.println("Total de pedidos: "+pedidosCsv.size());
 		System.out.println("Total de produtos vendidos: "+tpv.calcularProdutos(pedidosCsv));
 		System.out.println("Total de categorias: "+ tc.calcularCategorias(pedidosCsv));
