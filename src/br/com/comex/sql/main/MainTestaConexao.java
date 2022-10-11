@@ -1,9 +1,9 @@
-package br.com.comex.main;
+package br.com.comex.sql.main;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import br.com.comex.sql.ConnectionFactory;
+import br.com.comex.sql.factory.ConnectionFactory;
 
 public class MainTestaConexao {
 	public static void main(String[] args) throws SQLException {

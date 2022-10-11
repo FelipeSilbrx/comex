@@ -1,4 +1,4 @@
-package br.com.comex.sql;
+package br.com.comex.sql.factory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
