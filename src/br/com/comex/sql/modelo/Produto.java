@@ -1,7 +1,9 @@
-package br.com.comex.modelo;
+package br.com.comex.sql.modelo;
 
 import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import br.com.comex.modelo.ComexException;
 
 public class Produto implements ValorQuantidade {
 
@@ -9,7 +11,7 @@ public class Produto implements ValorQuantidade {
 	protected int id;
 	protected String nome;
 	protected String descricao;
-	protected double preco_unitario;
+	protected BigDecimal preco_unitario;
 	protected int qtd_estoque;
 	public Categoria categoriaProduto;
 	protected int idCategoria;
@@ -25,7 +27,7 @@ public class Produto implements ValorQuantidade {
 		return this.descricao;
 	}
 
-	public double getPreco_unitario() {
+	public BigDecimal getPreco_unitario() {
 		return this.preco_unitario;
 	}
 
@@ -39,16 +41,9 @@ public class Produto implements ValorQuantidade {
 	public int getIdCategoria() {
 		return this.idCategoria;
 	}
-	
-	public double CalcularValorEstoque() {
-		return this.qtd_estoque * this.preco_unitario;
-	}
 
-	public double CalcularImpostoUnitario() {
-		return this.preco_unitario * 0.4;
-	}
-	
-	public double getPreco() {
+		
+	public BigDecimal getPreco() {
 		return this.preco_unitario;
 	}
 	
@@ -58,7 +53,7 @@ public class Produto implements ValorQuantidade {
 	
 
 
-	public Produto(String nome, double preco_unitario, int qtd_estoque, int idCategoria) {
+	public Produto(String nome, BigDecimal preco_unitario, int qtd_estoque, int idCategoria) {
 		
 		this.id = count.incrementAndGet();
 		if(nome==null || nome.substring(0,1).matches("[0-9]*")){
@@ -70,9 +65,7 @@ public class Produto implements ValorQuantidade {
 		if (nome.length()<=5) {
 			 throw new ComexException(nome+". Erro: Nome do curso deve ser maior que 3 caracteres");
 		}
-		if (preco_unitario <= 0) {
-			 throw new ComexException(nome+". Erro: Preco deve ser maior que 0");
-		}
+		
 		if (qtd_estoque <= 0) {
 			 throw new ComexException(nome+". Erro: Quantidade de estoque menor que 0");
 		}
@@ -88,6 +81,6 @@ public class Produto implements ValorQuantidade {
 	}
 	@Override
 	public String toString() {
-		return "\nProduto: "+"\nId: "+ getId() +"\nNome do produto: "+getNome()+"\nValor do Produto: "+getPreco_unitario()+ "\nQuantidade de estoque: "+ getQtd_estoque() +"\nCategoria: "+categoriaProduto.getNome()+"\nValor total do estoque: "+CalcularValorEstoque()+"\nValor do Imposto: "+CalcularImpostoUnitario();
+		return "\nProduto: "+"\nId: "+ getId() +"\nNome do produto: "+getNome()+"\nValor do Produto: "+getPreco_unitario()+ "\nQuantidade de estoque: "+ getQtd_estoque() +"\nCategoria: "+categoriaProduto.getNome();
 	}
 }

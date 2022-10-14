@@ -18,8 +18,8 @@ public class MainCalculadoraValorTotal {
 		Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
 		Categoria livros = new Categoria("LIVROS", Status.INATIVA);
 
-		Produto produto1 = new Produto("Notebook Samsung", 3523.00, 80, informatica);
-		Produto produto2 = new Produto("Clean Architecture", 102.90, 52, livros);
+		Produto produto1 = new Produto("Notebook Samsung", 3523.00, 80, informatica.getId());
+		Produto produto2 = new Produto("Clean Architecture", 102.90, 52, livros.getId());
 
 		Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "81 9 88785225", "rua 123", "21", "CASA C", "Torrões", "Recife",
 				"Pe");

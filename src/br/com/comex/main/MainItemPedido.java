@@ -18,9 +18,9 @@ public class MainItemPedido {
 			Categoria moveis = new Categoria("MÓVEIS", Status.INATIVA);
 			Categoria livros = new Categoria("LIVROS", Status.ATIVA);
 
-			Produto produto1 = new Produto( "Notebook Samsung", 3523.00, 80, informatica);
-			Produto produto2 = new Produto( "Clean Architecture", 102.90, 52, livros);
-			Produto produto3 = new Produto( "Monitor Dell 27", 1889.00, 26, informatica);
+			Produto produto1 = new Produto( "Notebook Samsung", 3523.00, 80, informatica.getId());
+			Produto produto2 = new Produto( "Clean Architecture", 102.90, 52, livros.getId());
+			Produto produto3 = new Produto( "Monitor Dell 27", 1889.00, 26, informatica.getId());
 
 			Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "81 9 88785225", "rua 123", "21", "CASA C", "Torrões", "Recife",
 					"Pe");

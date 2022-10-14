@@ -13,17 +13,17 @@ public class MainProduto {
 			Categoria informatica = new Categoria("INFORMÁTICA",Status.ATIVA);		
 			Categoria livros = new Categoria("LIVROS",Status.ATIVA);
 			
-			Produto produto1 = new Produto("Notebook Samsung", 3523.00, 1, informatica);
+			Produto produto1 = new Produto("Notebook Samsung", 3523.00, 1, informatica.getId());
 			System.out.printf(produto1.toString());
 			System.out.printf("\n-------------------");
-			Produto produto2 = new Produto("Clean Architecture", 102.90, 2, livros);
+			Produto produto2 = new Produto("Clean Architecture", 102.90, 2, livros.getId());
 			System.out.printf(produto2.toString());
 			System.out.printf("\n-------------------");
-			Produto produto3 = new Produto("Monitor Dell 27",1889.00, 0, informatica);
+			Produto produto3 = new Produto("Monitor Dell 27",1889.00, 0, informatica.getId());
 			System.out.printf(produto3.toString());
 			System.out.printf("\n-------------------");
 			
-			ProdutoIsento produtoIsento1 = new ProdutoIsento("Clean Architecture",102.90, 2, livros);
+			ProdutoIsento produtoIsento1 = new ProdutoIsento("Clean Architecture",102.90, 2, livros.getId());
 			System.out.printf(produtoIsento1.toString());
 			System.out.printf("\n-------------------");
 		}

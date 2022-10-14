@@ -25,6 +25,6 @@ public class MainListagemCategoria {
 			System.out.println( id+ " | "+nome+ " | "+status);
 			
 		}
-		
+		connection.close();	
 	}
 }

@@ -13,10 +13,10 @@ public class MainIsercaoCategoria {
 		
 		Statement stm = connection.createStatement();
 		
-		stm.execute("INSERT INTO COMEX.CATEGORIA(nome, status) VALUES ('INFORMÁTICA', 'ATIVA')", Statement.RETURN_GENERATED_KEYS);
-		stm.execute("INSERT INTO COMEX.CATEGORIA (nome, status) VALUES ('MÓVEIS', 'INATIVA')", Statement.RETURN_GENERATED_KEYS);
-		stm.execute("INSERT INTO COMEX.CATEGORIA (nome, status) VALUES ('LIVROS', 'ATIVA')", Statement.RETURN_GENERATED_KEYS);
+		stm.execute("INSERT INTO COMEX.CATEGORIA(nome, status) VALUES ('INFORMÁTICA', 'ATIVA')");
+		stm.execute("INSERT INTO COMEX.CATEGORIA (nome, status) VALUES ('MÓVEIS', 'INATIVA')");
+		stm.execute("INSERT INTO COMEX.CATEGORIA (nome, status) VALUES ('LIVROS', 'ATIVA')");
 		
-				
+	connection.close();	
 	}
 }
