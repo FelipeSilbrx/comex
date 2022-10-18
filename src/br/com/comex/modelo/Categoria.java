@@ -6,7 +6,6 @@ public class Categoria {
 	public enum Status {
 		ATIVA, INATIVA
 		}
-
 	
 	protected static final AtomicInteger count = new AtomicInteger(0);
 	protected int id;;
@@ -23,6 +22,15 @@ public class Categoria {
 
 	public Status getStatus() {
 		return status;
+	}
+	public void setId(int id) {
+		this.id = id;
+		
+	}
+	
+	public Categoria(int id) {
+		
+		this.id = id;
 	}
 
 
@@ -44,12 +52,13 @@ public class Categoria {
 		this.nome = nome;
 		this.status = ativa;		
 		
-	}
+	}	
 
 	@Override
 	public String toString() {
 		return "Categoria " + getNome() + " ("+getId() +" - "+getStatus() +")";
 	}
+
 	
 	
 

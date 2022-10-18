@@ -2,7 +2,6 @@ package br.com.comex.main;
 
 import java.io.FileNotFoundException;
 import java.util.List;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import br.com.comex.csv.LeitorPedidosCsv;
@@ -18,16 +17,16 @@ public class MainLeitorPedidoCsv {
 		LeitorPedidosCsv leitorPedidoCsv = new LeitorPedidosCsv();
 		List<PedidoCsv>  pedidosCsv = leitorPedidoCsv.lerPedidosCsv();
 		
-		TotalProdutosVendidos tpv = new TotalProdutosVendidos();
-		TotalCategorias tc = new TotalCategorias();
-		MontanteTotalVendas mtv = new MontanteTotalVendas();		
-		PedidoMaisBaratoEMaisCaro pmbec = new PedidoMaisBaratoEMaisCaro();
+		TotalProdutosVendidos totalProdutosVendidos = new TotalProdutosVendidos();
+		TotalCategorias totalCategorias = new TotalCategorias();
+		MontanteTotalVendas montanteTotalVendas = new MontanteTotalVendas();		
+		PedidoMaisBaratoEMaisCaro pedidoMaisBaratoEMaisCaro = new PedidoMaisBaratoEMaisCaro();
 				
 		System.out.println("Total de pedidos: "+pedidosCsv.size());
-		System.out.println("Total de produtos vendidos: "+tpv.calcularProdutos(pedidosCsv));
-		System.out.println("Total de categorias: "+ tc.calcularCategorias(pedidosCsv));
-		System.out.println("Montante de vendas: " + NumberFormat.getCurrencyInstance().format(mtv.calcularMontante(pedidosCsv)));
-		pmbec.compararBaratoECaro(pedidosCsv);
+		System.out.println("Total de produtos vendidos: "+totalProdutosVendidos.calcularProdutos(pedidosCsv));
+		System.out.println("Total de categorias: "+ totalCategorias.calcularCategorias(pedidosCsv));
+		System.out.println("Montante de vendas: " + NumberFormat.getCurrencyInstance().format(montanteTotalVendas.calcularMontante(pedidosCsv)));
+		pedidoMaisBaratoEMaisCaro.compararBaratoECaro(pedidosCsv);
 	}
 
 }

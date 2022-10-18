@@ -56,11 +56,19 @@ public class Cliente {
 		return estado;
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+		
+	}
 	
+	public Cliente(int id) {
+		super();
+		this.id = id;
+	}
 
 	public Cliente(String nome, String cpf, String telefone, String rua, String numero, String complemento,
 			String bairro, String cidade, String estado) {
-		super();
+		
 		
 		this.id = count.incrementAndGet();
 		

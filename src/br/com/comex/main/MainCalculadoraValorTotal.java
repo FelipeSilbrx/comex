@@ -18,8 +18,8 @@ public class MainCalculadoraValorTotal {
 		Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
 		Categoria livros = new Categoria("LIVROS", Status.INATIVA);
 
-		Produto produto1 = new Produto("Notebook Samsung", 3523.00, 80, informatica.getId());
-		Produto produto2 = new Produto("Clean Architecture", 102.90, 52, livros.getId());
+		Produto produto1 = new Produto("Notebook Samsung", 3523.00, 80, informatica);
+		Produto produto2 = new Produto("Clean Architecture", 102.90, 52, livros);
 
 		Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "81 9 88785225", "rua 123", "21", "CASA C", "Torrões", "Recife",
 				"Pe");
@@ -30,9 +30,9 @@ public class MainCalculadoraValorTotal {
 		Pedido pedido1 = new Pedido(spf.format(22 - 02 - 2022), cliente1);
 		Pedido pedido2 = new Pedido(spf.format(19 - 10 - 2019), cliente2);
 
-		ItemPedido itempedido1 = new ItemPedido(produto1, produto1.getPreco_unitario(), 1, pedido1,
-				TipoDesconto.PROMOCAO);
-		ItemPedido itempedido2 = new ItemPedido(produto2, produto2.getPreco_unitario(), 2, pedido2,
+		ItemPedido itempedido1 = new ItemPedido(produto1, produto1.getPrecoUnitario(), 1, pedido1,
+				 TipoDesconto.PROMOCAO);
+		ItemPedido itempedido2 = new ItemPedido(produto2, produto2.getPrecoUnitario(), 2, pedido2,
 				TipoDesconto.NENHUM);
 
 		CalculadoraValorTotal cvt = new CalculadoraValorTotal();

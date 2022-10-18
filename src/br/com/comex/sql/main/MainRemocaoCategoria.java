@@ -1,9 +1,10 @@
 package br.com.comex.sql.main;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
+import br.com.comex.modelo.Categoria.Status;
 import br.com.comex.sql.factory.ConnectionFactory;
 
 public class MainRemocaoCategoria {
@@ -11,9 +12,9 @@ public class MainRemocaoCategoria {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.getConnection();
 		
-		Statement stm = connection.createStatement();
-		
-		stm.execute("DELETE FROM COMEX.CATEGORIA WHERE STATUS = 'INATIVA'" );
+		PreparedStatement stm = connection.prepareStatement("DELETE FROM COMEX.CATEGORIA WHERE STATUS = ?");
+		stm.setString(1,String.valueOf(Status.INATIVA));
+		stm.execute( );
 		
 		Integer linhasModificadas = stm.getUpdateCount();
 		
