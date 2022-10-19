@@ -18,9 +18,9 @@ public class MainDAOCategoria {
 		Categoria categoria3 = new Categoria("Livros",Status.ATIVA);
 		DAOCategoria daoCategoria = new DAOCategoria(connection);
 		daoCategoria.salvarCategoria(categoria1);
-		daoCategoria.salvarCategoria(categoria2);
-		daoCategoria.salvarCategoria(categoria3);
-		daoCategoria.listarCategoria();
+		//daoCategoria.salvarCategoria(categoria2);
+		//daoCategoria.salvarCategoria(categoria3);
+		//daoCategoria.listarCategoria();
 		
 		//daoCategoria.listarCategoria();
 	}

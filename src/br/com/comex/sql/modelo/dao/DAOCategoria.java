@@ -19,13 +19,14 @@ public class DAOCategoria {
 	}
 
 	public void salvarCategoria(Categoria categoria) throws SQLException {
-		String sql = "INSERT INTO comex.CATEGORIA(nome, status) VALUES( ?, ?)";
+		String sql = "INSERT INTO comex.CATEGORIA(id, nome, status) VALUES( ?, ?, ?)";
 
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-			pstm.setString(1, categoria.getNome());
-			pstm.setString(2, categoria.getStatus().name());			
-			pstm.executeQuery();
-			
+			pstm.setInt(1, categoria.getId());
+			pstm.setString(2, categoria.getNome());
+			pstm.setString(3, categoria.getStatus().name());			
+			pstm.execute();
+			pstm.close();
 			System.out.println("Categoria inserida com sucesso!!!");
 			pstm.close();
 			
