@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.sql.factory.ConnectionFactory;
-import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Cliente;
-import br.com.comex.modelo.Pedido;
 
 public class DAOCliente {
 	private Connection connection;
@@ -20,23 +18,30 @@ public class DAOCliente {
 	}
 
 	public void salvarCliente(Cliente cliente) throws SQLException {
-		String sql = "INSERT INTO COMEX.CLIENTE(id, nome, cpf, telefone, rua, numero, complemento, bairro, cidade, uf)"
-				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		PreparedStatement stm = connection.prepareStatement(sql);
-		stm.setInt(1, cliente.getId());
-		stm.setString(2, cliente.getNome());
-		stm.setString(3, cliente.getCpf());
-		stm.setString(4, cliente.getTelefone());
-		stm.setString(5, cliente.getRua());
-		stm.setString(6, cliente.getNumero());
-		stm.setString(7, cliente.getComplemento());
-		stm.setString(8, cliente.getBairro());
-		stm.setString(9, cliente.getCidade());
-		stm.setString(10, cliente.getEstado());
+		String sql = "INSERT INTO COMEX.CLIENTE( nome, cpf, telefone, rua, numero, complemento, bairro, cidade, uf)"
+				+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		try (PreparedStatement pstm = connection.prepareStatement(sql)){;
+		
+		pstm.setString(1, cliente.getNome());
+		pstm.setString(2, cliente.getCpf());
+		pstm.setString(3, cliente.getTelefone());
+		pstm.setString(4, cliente.getRua());
+		pstm.setString(5, cliente.getNumero());
+		pstm.setString(6, cliente.getComplemento());
+		pstm.setString(7, cliente.getBairro());
+		pstm.setString(8, cliente.getCidade());
+		pstm.setString(9, cliente.getEstado());
+		pstm.setInt(10, cliente.getId());
+		pstm.executeQuery();
+		pstm.close();
+		}catch (Exception ex) {
+			ex.printStackTrace();
+			System.out.println("Erro ao salvar cliente: "+ ex);
+			
+		}			
+		
 
-		stm.execute();
-
-		connection.close();
+		
 	}
 
 	public List<Cliente> listarCliente() throws SQLException {
@@ -49,7 +54,6 @@ public class DAOCliente {
 			Cliente cliente = this.populaCliente(rst);
 			clientes.add(cliente);
 		}
-		rst.close();
 		pstm.close();
 		return clientes;
 	}
@@ -59,36 +63,35 @@ public class DAOCliente {
 		PreparedStatement pstm = connection.prepareStatement(sql);
 		
 		pstm.setInt(1, id);
-		pstm.execute();		
+		pstm.executeQuery();
 		pstm.close();
 	}
 	
 	public void atualizaCliente(Cliente cliente) throws SQLException {
-		String sql = "UPDATE comex.cliente SET ID = ?, NOME = ?, CPF = ? , TELEFONE = ?, RUA = ?, NUMERO = ?, COMPLEMENTO = ?, BAIRRO = ?, CIDADE = ?, UF = ? ";
-		String [] colunaParaRetornar = {"id"};
-		try (PreparedStatement stm = connection.prepareStatement(sql, colunaParaRetornar)) {
-			stm.setInt(1, cliente.getId());
-			stm.setString(2, cliente.getNome());
-			stm.setString(3, cliente.getCpf());
-			stm.setString(4, cliente.getTelefone());
-			stm.setString(5, cliente.getRua());
-			stm.setString(6, cliente.getNumero());
-			stm.setString(7, cliente.getComplemento());
-			stm.setString(8, cliente.getBairro());
-			stm.setString(9, cliente.getCidade());
-			stm.setString(10, cliente.getEstado());
+		String sql = "UPDATE comex.cliente SET  NOME = ?, CPF = ? , TELEFONE = ?, RUA = ?, NUMERO = ?, COMPLEMENTO = ?, BAIRRO = ?, CIDADE = ?, UF = ?, ID = ? ";
+		
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			pstm.setString(1, cliente.getNome());
+			pstm.setString(2, cliente.getCpf());
+			pstm.setString(3, cliente.getTelefone());
+			pstm.setString(4, cliente.getRua());
+			pstm.setString(5, cliente.getNumero());
+			pstm.setString(6, cliente.getComplemento());
+			pstm.setString(7, cliente.getBairro());
+			pstm.setString(8, cliente.getCidade());
+			pstm.setString(9, cliente.getEstado());
+			pstm.setInt(10, cliente.getId());
+			pstm.executeQuery();
+			pstm.close();
 
-			stm.execute();
-
-			connection.close();
+			
 			
 			System.out.println("Cliente atualizad com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println("Erro ao atualizar cliente: "+ ex);
 			
-		}
-		connection.close();			
+		}			
 	}
 	
 	private Cliente populaCliente(ResultSet registros) throws SQLException {

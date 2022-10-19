@@ -12,12 +12,11 @@ public class MainDAOCliente {
 	public static void main(String[] args) throws SQLException {
 		Connection connection = new ConnectionFactory().getConnection();
 		
-		Cliente cliente1 = new Cliente("Anna Carolina", "111.111.111-11", "(81) 9 8878-5225", "rua 123", "21", "CASA C", "Torrões", "Recife",
-				"PE");
+		Cliente cliente1 = new Cliente("Anna Carolina", "111.111.111-11", "(81) 9 8878-5225", "rua 123", "21", "CASA C", "Torrões", "Recife", "PE");
 		
-		DAOCliente crudCliente = new DAOCliente(connection);
-		crudCliente.salvarCliente(cliente1);
-		crudCliente.listarCliente();
-		//crudCliente.excluirCliente(1);
+		DAOCliente daoCliente = new DAOCliente(connection);
+		daoCliente.salvarCliente(cliente1);
+		daoCliente.listarCliente();
+		//daoCliente.excluirCliente(1);
 	}
 }

@@ -22,11 +22,11 @@ public class MainDAOProduto {
 		Produto produto2 = new Produto("Sofá 3 lugares", 2500.00, 1, moveis);
 		Produto produto3 = new Produto("Clean Architecture", 102.9, 2, livros);
 
-		DAOProduto crudProduto = new DAOProduto(connection);
-		crudProduto.salvarProduto(produto1);
-		crudProduto.salvarProduto(produto2);
-		crudProduto.salvarProduto(produto3);
-		crudProduto.listarProduto();
+		DAOProduto daoProduto = new DAOProduto(connection);
+		daoProduto.salvarProduto(produto1);
+		daoProduto.salvarProduto(produto2);
+		daoProduto.salvarProduto(produto3);
+		//daoProduto.listarProduto();
 	}
 
 }

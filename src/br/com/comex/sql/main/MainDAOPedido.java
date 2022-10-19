@@ -21,10 +21,10 @@ public class MainDAOPedido {
 		Pedido pedido1 = new Pedido(spf.format(22-02-2022) ,cliente1);
 		Pedido pedido2 = new Pedido(spf.format(19-10-2019) ,cliente2);
 		
-		DAOPedido crudPedido = new DAOPedido(connection);
-		crudPedido.salvarPedido(pedido1);
-		crudPedido.salvarPedido(pedido2);
-		crudPedido.listarPedido();
+		DAOPedido daoPedido = new DAOPedido(connection);
+		daoPedido.salvarPedido(pedido1);
+		daoPedido.salvarPedido(pedido2);
+		daoPedido.listarPedido();
 		
 	}
 }

@@ -9,10 +9,7 @@ import java.util.List;
 
 import br.com.comex.sql.factory.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.ItemPedido;
-import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.TipoDesconto;
 
 public class DAOProduto {
 	private Connection connection;
@@ -22,27 +19,26 @@ public class DAOProduto {
 	}
 
 	public void salvarProduto(Produto produto) throws SQLException {
-		String sql = "INSERT INTO COMEX.PRODUTO(id, nome, descricao, preco_unitario, quantidade_estoque, categoria_id, tipo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO COMEX.PRODUTO( nome, descricao, preco_unitario, quantidade_estoque, categoria_id, tipo) VALUES ( ?, ?, ?, ?, ?, ?)";
 
-		String[] colunaParaRetornar = { "id" };
+		
 
-		try (PreparedStatement stm = connection.prepareStatement(sql, colunaParaRetornar)) {
-			stm.setInt(1, produto.getId());
-			stm.setString(2, produto.getNome());
-			stm.setString(3, produto.getDescricao());
-			stm.setDouble(4, produto.getPrecoUnitario());
-			stm.setInt(5, produto.getQtdEstoque());
-			stm.setInt(6, produto.getCategoriaProduto().getId());
-			stm.setString(7, String.valueOf(produto.getCategoriaProduto().getStatus()));
-
-			stm.execute();
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			pstm.setString(1, produto.getNome());
+			pstm.setString(2, produto.getDescricao());
+			pstm.setDouble(3, produto.getPrecoUnitario());
+			pstm.setInt(4, produto.getQtdEstoque());
+			pstm.setInt(5, produto.getCategoriaProduto().getId());
+			pstm.setString(6, String.valueOf(produto.getCategoriaProduto().getStatus()));
+			pstm.executeQuery();
+			pstm.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("ROLLBACK EXECUTADO");
-			connection.rollback();
+			System.out.println("Erro: " + ex);
+			
 		}
-		connection.close();
+		
 
 	}
 
@@ -75,26 +71,26 @@ public class DAOProduto {
 	}
 	
 	public void atualizaProduto(Produto produto) throws SQLException {
-		String sql = "UPDATE comex.produto SET ID = ?, NOME = ?, DESCRICAO = ?, PRECO_UNITARIO = ?, QUANTIDADE_ESTOQUE = ?, CATEGORIA_ID = ?, TIPO = ? ";
-		String [] colunaParaRetornar = {"id"};
-		try (PreparedStatement stm = connection.prepareStatement(sql, colunaParaRetornar)) {
-			stm.setInt(1, produto.getId());
-			stm.setString(2, produto.getNome());
-			stm.setString(3, produto.getDescricao());
-			stm.setDouble(4, produto.getPrecoUnitario());
-			stm.setInt(5, produto.getQtdEstoque());
-			stm.setInt(6, produto.getCategoriaProduto().getId());
-			stm.setString(7, String.valueOf(produto.getCategoriaProduto().getStatus()));
-
-			stm.execute();
+		String sql = "UPDATE comex.produto SET  NOME = ?, DESCRICAO = ?, PRECO_UNITARIO = ?, QUANTIDADE_ESTOQUE = ?, CATEGORIA_ID = ?, TIPO = ? ,ID = ?";
+		
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			
+			pstm.setString(1, produto.getNome());
+			pstm.setString(2, produto.getDescricao());
+			pstm.setDouble(3, produto.getPrecoUnitario());
+			pstm.setInt(4, produto.getQtdEstoque());
+			pstm.setInt(5, produto.getCategoriaProduto().getId());
+			pstm.setString(6, String.valueOf(produto.getCategoriaProduto().getStatus()));
+			pstm.setInt(7, produto.getId());
+			pstm.executeQuery();
+			pstm.close();
 
 			System.out.println("Produto atualizado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println("Erro ao atualizar produto: "+ ex);
 			
-		}
-		connection.close();			
+		}		
 	}
 	
 	private Produto populaProduto(ResultSet registros) throws SQLException {
@@ -103,7 +99,7 @@ public class DAOProduto {
 				registros.getString("DESCRICAO"), registros.getInt("QUANTIDADE_estoque"),
 				new Categoria(registros.getInt("CATEGORIA_ID")), registros.getString("TIPO"));
 
-		produto.setId(registros.getInt("id"));
+		produto.setId(registros.getInt("ID"));
 		return produto;
 	}
 }

@@ -10,7 +10,6 @@ import java.util.List;
 import br.com.comex.sql.factory.ConnectionFactory;
 import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.Pedido;
-import br.com.comex.modelo.Produto;
 
 public class DAOPedido {
 	private Connection connection;
@@ -20,22 +19,21 @@ public class DAOPedido {
 	}
 
 	public void salvarPedido(Pedido pedido) throws SQLException {
-		String sql = "INSERT INTO COMEX.PEDIDO(id, data, cliente_id) VALUES (?, ?, ?)";
-		String[] colunaParaRetornar = { "id" };
+		String sql = "INSERT INTO COMEX.PEDIDO( data, cliente_id) VALUES ( ?, ?)";
+		
 
-		try (PreparedStatement stm = connection.prepareStatement(sql, colunaParaRetornar)) {
-			stm.setInt(1, pedido.getId());
-			stm.setString(2, pedido.getData());
-			stm.setInt(3, pedido.getCliente().getId());
-
-			stm.execute();
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			
+			pstm.setString(1, pedido.getData());
+			pstm.setInt(2, pedido.getCliente().getId());
+			pstm.executeQuery();
+			pstm.close();
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("ROLLBACK EXECUTADO");
-			connection.rollback();
+			System.out.println("Erro: " + ex);
 		}
-		connection.close();
+		
 
 	}
 
@@ -60,28 +58,26 @@ public class DAOPedido {
 		PreparedStatement pstm = connection.prepareStatement(sql);
 
 		pstm.setInt(1, id);
-		pstm.execute();
-
+		pstm.executeQuery();
 		pstm.close();
 	}
 	
 	public void atualizaPedido(Pedido pedido) throws SQLException {
-		String sql = "UPDATE comex.pedido SET ID = ?, DATA = ? , ID_CLIENTE = ?";
+		String sql = "UPDATE comex.pedido SET  DATA = ? , ID_CLIENTE = ?, ID = ?S";
 		String [] colunaParaRetornar = {"id"};
-		try (PreparedStatement stm = connection.prepareStatement(sql, colunaParaRetornar)) {
-			stm.setInt(1, pedido.getId());
-			stm.setString(2, pedido.getData());
-			stm.setInt(3, pedido.getCliente().getId());
-
-			stm.execute();
-
+		try (PreparedStatement pstm = connection.prepareStatement(sql, colunaParaRetornar)) {
+			pstm.setString(1, pedido.getData());
+			pstm.setInt(2, pedido.getCliente().getId());
+			pstm.setInt(3,pedido.getId());
+			
+			pstm.executeQuery();
+			pstm.close();
 			System.out.println("Pedido atualizado com sucesso");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println("Erro ao atualizar pedido: "+ ex);
 			
-		}
-		connection.close();			
+		}			
 	}
 	
 	private Pedido populaPedido(ResultSet registros) throws SQLException {

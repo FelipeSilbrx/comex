@@ -21,24 +21,24 @@ public class DAOItemPedido {
 	}
 
 	public void salvarItemPedido(ItemPedido itemPedido) throws SQLException {
-		String sql = "INSERT INTO COMEX.ITEM_PEDIDO(id, preco_unitario, quantidade, produto_id, pedido_id, desconto, tipo_desconto) VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO COMEX.ITEM_PEDIDO( preco_unitario, quantidade, produto_id, pedido_id, desconto, tipo_desconto) VALUES ( ?, ?, ?, ?, ?, ?)";
 
 		String[] colunaParaRetornar = { "id" };
 
-		try (PreparedStatement stm = connection.prepareStatement(sql, colunaParaRetornar)) {
-			stm.setInt(1, itemPedido.getId());
-			stm.setDouble(2, itemPedido.getPrecoUnitario());
-			stm.setInt(3, itemPedido.getQtdItens());
-			stm.setInt(4, itemPedido.getProduto().getId());
-			stm.setInt(5, itemPedido.getPedido().getId());
-			stm.setDouble(6, itemPedido.getDesconto());
-			stm.setString(7, itemPedido.getTipoDesconto().name());
+		try (PreparedStatement pstm = connection.prepareStatement(sql, colunaParaRetornar)) {
+			
+			pstm.setDouble(1, itemPedido.getPrecoUnitario());
+			pstm.setInt(2, itemPedido.getQuantidade());
+			pstm.setInt(3, itemPedido.getProduto().getId());
+			pstm.setInt(4, itemPedido.getPedido().getId());
+			pstm.setDouble(5, itemPedido.getDesconto());
+			pstm.setString(6, itemPedido.getTipoDesconto().name());
+			pstm.executeQuery();
+			pstm.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println("ROLLBACK EXECUTADO");
-			connection.rollback();
-		}
-		connection.close();
+			System.out.println("Erro: " + ex);
+		}	
 	}
 
 	public List<ItemPedido> listarItemPedido() throws SQLException {
@@ -51,7 +51,7 @@ public class DAOItemPedido {
 			ItemPedido itemPedido = this.populaItemPedido(rst);
 			itemPedidos.add(itemPedido);
 		}
-		rst.close();
+		
 		pstm.close();
 
 		return itemPedidos;
@@ -82,7 +82,7 @@ public class DAOItemPedido {
 
 		} catch (Exception erro) {
 
-			System.out.println("Erro ao atualizar item_pedido" + erro);
+			System.out.println("Erro ao atualizar item pedido" + erro);
 
 		}
 

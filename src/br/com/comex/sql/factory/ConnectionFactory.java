@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	
 	public Connection getConnection() throws SQLException{
-		return DriverManager.getConnection("jdbc:oracle:thin:@//192.168.1.12:1521/XE","system","dell");
+		return DriverManager.getConnection("jdbc:oracle:thin:@//localhost/XE","system","dell");
 	}		
 		
 }
