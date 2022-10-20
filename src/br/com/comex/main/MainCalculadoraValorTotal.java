@@ -6,10 +6,8 @@ import br.com.comex.modelo.CalculadoraValorTotal;
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Categoria.Status;
 import br.com.comex.modelo.Cliente;
-import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.TipoDesconto;
 
 public class MainCalculadoraValorTotal {
 	public static void main(String[] args) {
@@ -30,16 +28,16 @@ public class MainCalculadoraValorTotal {
 		Pedido pedido1 = new Pedido(spf.format(22 - 02 - 2022), cliente1);
 		Pedido pedido2 = new Pedido(spf.format(19 - 10 - 2019), cliente2);
 
-		ItemPedido itempedido1 = new ItemPedido(produto1, produto1.getPrecoUnitario(), 1, pedido1,
+		/*ItemPedido itempedido1 = new ItemPedido(produto1, produto1.getPrecoUnitario(), 1, pedido1,
 				 TipoDesconto.PROMOCAO);
 		ItemPedido itempedido2 = new ItemPedido(produto2, produto2.getPrecoUnitario(), 2, pedido2,
-				TipoDesconto.NENHUM);
+				TipoDesconto.NENHUM);*/
 
 		CalculadoraValorTotal cvt = new CalculadoraValorTotal();
 		
-		System.out.println("\nValor unitario: "+itempedido1.getPreco()+"\nQuantidade: "+itempedido1.getQuantidade()+"\nValores Totais: " + cvt.Calcula(itempedido1));
+	/*	System.out.println("\nValor unitario: "+itempedido1.getPreco()+"\nQuantidade: "+itempedido1.getQuantidade()+"\nValores Totais: " + cvt.Calcula(itempedido1));
 		System.out.println("\nValor unitario: "+produto2.getPreco()+"\nQuantidade: "+produto2.getQuantidade()+"\nValores Totais: " + cvt.Calcula(produto2));
-		
+	*/	
 		
 	}
 }

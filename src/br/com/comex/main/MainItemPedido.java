@@ -35,17 +35,17 @@ public class MainItemPedido {
 			Pedido pedido4 = new Pedido( spf.format(22 - 02 - 2022), cliente1);
 			
 
-			ItemPedido itempedido1 = new ItemPedido(produto1, produto1.getPrecoUnitario(), 1, pedido1,
+			/*ItemPedido itempedido1 = new ItemPedido(produto1, produto1.getPrecoUnitario(), 1, pedido1,
 					TipoDesconto.PROMOCAO);
 			ItemPedido itempedido2 = new ItemPedido(produto2, produto2.getPrecoUnitario(), 2, pedido2,
 					TipoDesconto.NENHUM);
 			ItemPedido itempedido3 = new ItemPedido(produto1, produto1.getPrecoUnitario(), 1, pedido4,
-					TipoDesconto.PROMOCAO);
+					TipoDesconto.PROMOCAO);*/
 			
 
-			System.out.println(itempedido1.toString());
+			/*System.out.println(itempedido1.toString());
 			System.out.println(itempedido2.toString());
-			System.out.println(itempedido3.toString());
+			System.out.println(itempedido3.toString());*/
 
 
 			
