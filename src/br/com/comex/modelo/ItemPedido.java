@@ -85,7 +85,7 @@ public class ItemPedido implements ValorQuantidade {
 		this.desconto = this.getPrecoUnitario() * this.CalculaDesconto();
 	}
 	public ItemPedido(Produto produto, double preco_unitario, int qtd_itens, Pedido pedido,
-			TipoDesconto tipo_desconto) {
+			double desconto, TipoDesconto tipo_desconto) {
 		
 		this.produto = produto;
 		this.preco_unitario = preco_unitario;
