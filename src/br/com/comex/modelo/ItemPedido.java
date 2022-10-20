@@ -1,15 +1,13 @@
 package br.com.comex.modelo;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class ItemPedido implements ValorQuantidade {
 
-	protected static final AtomicInteger count = new AtomicInteger(0);
+	
 	protected Produto produto;
 	public Pedido pedido;
 	protected int id;
 	protected double preco_unitario;
-	protected int qtd_itens;
+	protected int quantidade;
 	protected double desconto;
 	protected TipoDesconto tipo_desconto = TipoDesconto.NENHUM;
 
@@ -26,7 +24,7 @@ public class ItemPedido implements ValorQuantidade {
 	}
 
 	public int getQtdItens() {
-		return this.qtd_itens;
+		return this.quantidade;
 	}
 
 	public Pedido getPedido() {
@@ -46,7 +44,7 @@ public class ItemPedido implements ValorQuantidade {
 	}
 
 	public int getQuantidade() {
-		return this.qtd_itens;
+		return this.quantidade;
 	}
 	
 	public void setId(int id) {
@@ -77,22 +75,21 @@ public class ItemPedido implements ValorQuantidade {
 
 	}
 
-	public ItemPedido(Produto produto, double preco_unitario, int qtd_itens, Pedido pedido, double desconto,
-			TipoDesconto tipo_desconto) {
-		this.id = count.incrementAndGet();
+	public ItemPedido(Produto produto, double preco_unitario, int qtd_itens, Pedido pedido, double desconto
+			) {
+		
 		this.produto = produto;
 		this.preco_unitario = preco_unitario;
-		this.qtd_itens = qtd_itens;
+		this.quantidade = qtd_itens;
 		this.pedido = pedido;
-		this.tipo_desconto = tipo_desconto;
 		this.desconto = this.getPrecoUnitario() * this.CalculaDesconto();
 	}
 	public ItemPedido(Produto produto, double preco_unitario, int qtd_itens, Pedido pedido,
 			TipoDesconto tipo_desconto) {
-		this.id = count.incrementAndGet();
+		
 		this.produto = produto;
 		this.preco_unitario = preco_unitario;
-		this.qtd_itens = qtd_itens;
+		this.quantidade = qtd_itens;
 		this.pedido = pedido;
 		this.tipo_desconto = tipo_desconto;
 		this.desconto = this.getPrecoUnitario() * this.CalculaDesconto();

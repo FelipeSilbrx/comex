@@ -23,9 +23,7 @@ public class DAOItemPedido {
 	public void salvarItemPedido(ItemPedido itemPedido) throws SQLException {
 		String sql = "INSERT INTO COMEX.ITEM_PEDIDO( preco_unitario, quantidade, produto_id, pedido_id, desconto, tipo_desconto) VALUES ( ?, ?, ?, ?, ?, ?)";
 
-		String[] colunaParaRetornar = { "id" };
-
-		try (PreparedStatement pstm = connection.prepareStatement(sql, colunaParaRetornar)) {
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 			
 			pstm.setDouble(1, itemPedido.getPrecoUnitario());
 			pstm.setInt(2, itemPedido.getQuantidade());
@@ -43,7 +41,7 @@ public class DAOItemPedido {
 
 	public List<ItemPedido> listarItemPedido() throws SQLException {
 		List<ItemPedido> itemPedidos = new ArrayList<ItemPedido>();
-		String sql = "SELECT ID,PRECO_UNITARIO, QUANTIDADE, PRODUTO_ID, PEDIDO_ID, DESCONTO, TIPO_DESCONTO FROM COMEX.ITEM_PEDIDO";
+		String sql = "SELECT * FROM COMEX.ITEM_PEDIDO";
 		PreparedStatement pstm = connection.prepareStatement(sql);
 		ResultSet rst = pstm.executeQuery();
 
@@ -52,8 +50,9 @@ public class DAOItemPedido {
 			itemPedidos.add(itemPedido);
 		}
 		
-		pstm.close();
-
+		System.out.println("\n" +itemPedidos);
+		rst.close();		
+		pstm.close();		
 		return itemPedidos;
 	}
 	

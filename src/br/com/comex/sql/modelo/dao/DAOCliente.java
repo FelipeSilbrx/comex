@@ -31,29 +31,26 @@ public class DAOCliente {
 		pstm.setString(7, cliente.getBairro());
 		pstm.setString(8, cliente.getCidade());
 		pstm.setString(9, cliente.getEstado());
-		pstm.setInt(10, cliente.getId());
 		pstm.executeQuery();
 		pstm.close();
 		}catch (Exception ex) {
 			ex.printStackTrace();
 			System.out.println("Erro ao salvar cliente: "+ ex);
 			
-		}			
-		
-
-		
+		}		
 	}
 
 	public List<Cliente> listarCliente() throws SQLException {
 		List<Cliente> clientes = new ArrayList<>();
-		String sql = "SELECT ID, NOME, CPF, TELEFONE, RUA, NUMERO"
-				+ ", COMPLEMENTO, BAIRRO, CIDADE, UF FROM comex.cliente";
+		String sql = "SELECT * FROM comex.cliente";
 		PreparedStatement pstm = connection.prepareStatement(sql);
 		ResultSet rst = pstm.executeQuery();
 		while (rst.next()) {
 			Cliente cliente = this.populaCliente(rst);
 			clientes.add(cliente);
 		}
+		System.out.println("\n" +clientes);
+		rst.close();		
 		pstm.close();
 		return clientes;
 	}

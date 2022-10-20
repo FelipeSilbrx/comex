@@ -16,7 +16,7 @@ public class MainDAOCliente {
 		
 		DAOCliente daoCliente = new DAOCliente(connection);
 		daoCliente.salvarCliente(cliente1);
-		daoCliente.listarCliente();
+		//daoCliente.listarCliente();
 		//daoCliente.excluirCliente(1);
 	}
 }

@@ -18,27 +18,29 @@ public class DAOCategoria {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 
-	public void salvarCategoria(Categoria categoria) throws SQLException {
-		String sql = "INSERT INTO comex.CATEGORIA(id, nome, status) VALUES( ?, ?, ?)";
+	public void salvarCategoria(Categoria categoria) {
 
-		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-			pstm.setInt(1, categoria.getId());
-			pstm.setString(2, categoria.getNome());
-			pstm.setString(3, categoria.getStatus().name());			
-			pstm.execute();
-			pstm.close();
-			System.out.println("Categoria inserida com sucesso!!!");
-			pstm.close();
-			
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("Erro: " + ex);		
-		}
-	}
+        String sql = "INSERT INTO comex.CATEGORIA(nome, status)" + "VALUES (?, ?)";
+        try {
+            PreparedStatement pstm = connection.prepareStatement(sql);
+
+            pstm.setString(1, categoria.getNome());
+            pstm.setString(2, categoria.getStatus().name());
+            pstm.executeQuery();
+
+            System.out.println("Categoria inserida com sucesso!!!");
+
+            pstm.close();
+
+        } catch (Exception erro) {
+            System.out.println("Erro ao salvar " + erro);
+
+        } 
+    } 
 
 	public List<Categoria> listarCategoria() throws SQLException {
 		List<Categoria> categorias = new ArrayList<>();
-		String sql = "SELECT ID, NOME, STATUS FROM comex.categoria";
+		String sql = "SELECT * FROM comex.Categoria";
 		PreparedStatement pstm = connection.prepareStatement(sql);
 		ResultSet rst = pstm.executeQuery();
 
@@ -46,8 +48,9 @@ public class DAOCategoria {
 			Categoria categoria = this.populaCategoria(rst);
 			categorias.add(categoria);
 		}
-		pstm.close();
 		System.out.println("\n" +categorias);
+		rst.close();		
+		pstm.close();
 		return categorias;
 	}
 
@@ -63,12 +66,12 @@ public class DAOCategoria {
 	}
 
 	public void atualizaCategoria(Categoria categoria) throws SQLException {
-		String sql = "UPDATE comex.categoria SET ID = ?, NOME = ?, STATUS = ? ";
+		String sql = "UPDATE comex.categoria SET ID = ?, NOME = ?, STATUS = ?,ID = ? ";
 		
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-			pstm.setInt(1, categoria.getId());
-			pstm.setString(2, categoria.getNome());
-			pstm.setString(3, categoria.getStatus().name());
+			pstm.setString(1, categoria.getNome());
+			pstm.setString(2, categoria.getStatus().name());
+			pstm.setInt(3, categoria.getId());
 			pstm.executeQuery();
 			pstm.close();
 			System.out.println("Categoria atualizada com sucesso");

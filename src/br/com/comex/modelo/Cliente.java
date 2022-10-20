@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class Cliente {
 
-	protected static final AtomicInteger count = new AtomicInteger(0);
+	
 	protected int id;
 	protected String nome;
 	protected String cpf;
@@ -62,7 +62,7 @@ public class Cliente {
 	}
 	
 	public Cliente(int id) {
-		super();
+		
 		this.id = id;
 	}
 
@@ -70,14 +70,14 @@ public class Cliente {
 			String bairro, String cidade, String estado) {
 		
 		
-		this.id = count.incrementAndGet();
+		
 		
 		if(nome.substring(0).matches("[0-9]")){
 			throw new ComexException(nome+". Erro: Nome do cliente não pode começar com números de 0 à 9");
 		}
-		if (id <= 0) {
+		/*if (id < 0) {
 			 throw new ComexException(nome+". Erro: Id  do cliente não deve ser menor 0");
-		}
+		}*/
 		if (nome.length()<=5) {
 			 throw new ComexException(nome+". Erro: Tamanho do nome do cliente que está invalido");
 		}		

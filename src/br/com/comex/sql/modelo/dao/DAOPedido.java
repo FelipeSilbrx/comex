@@ -39,7 +39,7 @@ public class DAOPedido {
 
 	public List<Pedido> listarPedido() throws SQLException {
 		List<Pedido> pedidos = new ArrayList<>();
-		String sql = "SELECT ID, DATA , ID_CLIENTE FROM comex.pedido";
+		String sql = "SELECT * FROM comex.PEDIDO";
 		PreparedStatement pstm = connection.prepareStatement(sql);
 		ResultSet rst = pstm.executeQuery();
 
@@ -47,7 +47,9 @@ public class DAOPedido {
 			Pedido pedido = this.populaPedido(rst);
 			pedidos.add(pedido);
 		}
-		rst.close();
+
+		System.out.println("\n" +pedidos);
+		rst.close();		
 		pstm.close();
 		return pedidos;
 	}
@@ -64,8 +66,8 @@ public class DAOPedido {
 	
 	public void atualizaPedido(Pedido pedido) throws SQLException {
 		String sql = "UPDATE comex.pedido SET  DATA = ? , ID_CLIENTE = ?, ID = ?S";
-		String [] colunaParaRetornar = {"id"};
-		try (PreparedStatement pstm = connection.prepareStatement(sql, colunaParaRetornar)) {
+		
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 			pstm.setString(1, pedido.getData());
 			pstm.setInt(2, pedido.getCliente().getId());
 			pstm.setInt(3,pedido.getId());

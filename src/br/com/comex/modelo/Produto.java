@@ -1,17 +1,17 @@
 package br.com.comex.modelo;
 
-import java.util.concurrent.atomic.AtomicInteger;
+
 
 public class Produto implements ValorQuantidade {
 
-	protected static final AtomicInteger count = new AtomicInteger(0);
+	
 	protected int id;
 	protected String nome;
 	protected String descricao;
 	protected double preco_unitario;
 	protected int qtd_estoque;
 	public Categoria categoriaProduto;
-	protected String tipo;
+	protected TipoProduto tipo;
 
 	public int getId() {
 		return this.id;
@@ -20,7 +20,7 @@ public class Produto implements ValorQuantidade {
 	public String getNome() {
 		return this.nome;
 	}
-	public String getTipo() {
+	public TipoProduto getTipo() {
 		return this.tipo;
 	}
 
@@ -67,13 +67,13 @@ public class Produto implements ValorQuantidade {
 
 	public Produto(String nome, double preco_unitario, int qtd_estoque, Categoria categoriaProduto) {
 
-		this.id = count.incrementAndGet();
+		
 		if (nome == null || nome.substring(0, 1).matches("[0-9]*")) {
 			throw new ComexException(nome + ". Erro: Não pode começar com números de 0 à 9");
 		}
-		if (id <= 0) {
+		/*if (id <= 0) {
 			throw new ComexException(nome + ". Erro: Id deve ser maior que 0");
-		}
+		}*/
 		if (nome.length() <= 5) {
 			throw new ComexException(nome + ". Erro: Nome do curso deve ser maior que 3 caracteres");
 		}
@@ -94,15 +94,14 @@ public class Produto implements ValorQuantidade {
 
 	}
 
-	public Produto(String nome, double preco_unitario,String descricao, int qtd_estoque, Categoria categoriaProduto, String tipo) {
-
-		this.id = count.incrementAndGet();
+	public Produto(String nome, double preco_unitario,String descricao, int qtd_estoque, Categoria categoriaProduto, TipoProduto tipo) {
+		
 		if (nome == null || nome.substring(0, 1).matches("[0-9]*")) {
 			throw new ComexException(nome + ". Erro: Não pode começar com números de 0 à 9");
 		}
-		if (id <= 0) {
+		/*if (id <= 0) {
 			throw new ComexException(nome + ". Erro: Id deve ser maior que 0");
-		}
+		}*/
 		if (nome.length() <= 5) {
 			throw new ComexException(nome + ". Erro: Nome do curso deve ser maior que 3 caracteres");
 		}
@@ -121,6 +120,7 @@ public class Produto implements ValorQuantidade {
 		this.descricao = descricao;
 		this.qtd_estoque = qtd_estoque;
 		this.categoriaProduto = categoriaProduto;
+		this.tipo = tipo;
 
 	}
 

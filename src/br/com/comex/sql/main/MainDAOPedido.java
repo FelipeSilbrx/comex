@@ -14,16 +14,14 @@ public class MainDAOPedido {
 		Connection connection = new ConnectionFactory().getConnection();
 		
 		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
-		Cliente cliente1 = new Cliente("Ana Carolina", "111.111.111-11", "81 9 88785225", "rua 123", "21", "CASA C", "Torrões", "Recife",
-				"Pe");
-		Cliente cliente2 = new Cliente("Elizabeth", "222.222.222-22", "81 9 87785825", "rua abc", "S/N", "CASA D", "Torre", "Recife",
-				"Pe");
+		Cliente cliente1 = new Cliente(8);
+		
 		Pedido pedido1 = new Pedido(spf.format(22-02-2022) ,cliente1);
-		Pedido pedido2 = new Pedido(spf.format(19-10-2019) ,cliente2);
+		Pedido pedido2 = new Pedido(spf.format(19-10-2019) ,cliente1);
 		
 		DAOPedido daoPedido = new DAOPedido(connection);
-		daoPedido.salvarPedido(pedido1);
-		daoPedido.salvarPedido(pedido2);
+		//daoPedido.salvarPedido(pedido1);
+		//daoPedido.salvarPedido(pedido2);
 		daoPedido.listarPedido();
 		
 	}
