@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.comex.sql.factory.ConnectionFactory;
 import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.TipoDesconto;
@@ -17,8 +16,7 @@ public class DAOItemPedido {
 	private Connection connection;
 
 	public DAOItemPedido(Connection connection) throws SQLException {
-		this.connection = new ConnectionFactory().getConnection();
-	}
+		this.connection = connection;}
 
 	public void salvarItemPedido(ItemPedido itemPedido) throws SQLException {
 		String sql = "INSERT INTO COMEX.ITEM_PEDIDO( preco_unitario, quantidade, produto_id, pedido_id, desconto, tipo_desconto) VALUES ( ?, ?, ?, ?, ?, ?)";

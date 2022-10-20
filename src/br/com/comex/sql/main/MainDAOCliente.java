@@ -10,7 +10,7 @@ import br.com.comex.modelo.Cliente;
 public class MainDAOCliente {
 
 	public static void main(String[] args) throws SQLException {
-		Connection connection = new ConnectionFactory().getConnection();
+		Connection connection = new ConnectionFactory().criarConexao();
 		
 		Cliente cliente1 = new Cliente("Anna Carolina", "111.111.111-11", "(81) 9 8878-5225", "rua 123", "21", "CASA C", "Torrões", "Recife", "PE");
 		

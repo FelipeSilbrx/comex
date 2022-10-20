@@ -12,7 +12,7 @@ import br.com.comex.sql.modelo.dao.DAOItemPedido;
 
 public class MainDAOItemPedido {
 	public static void main(String[] args) throws SQLException {
-		Connection connection = new ConnectionFactory().getConnection();
+		Connection connection = new ConnectionFactory().criarConexao();
 		
 		ItemPedido itempedido1 = new ItemPedido(new Produto(28), 3523.00, 1,new Pedido(28),120, TipoDesconto.PROMOCAO );
 		

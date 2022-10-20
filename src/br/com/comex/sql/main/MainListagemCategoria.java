@@ -10,7 +10,7 @@ import br.com.comex.sql.factory.ConnectionFactory;
 public class MainListagemCategoria {
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
-		Connection connection = connectionFactory.getConnection();
+		Connection connection = connectionFactory.criarConexao();
 		
 		Statement stm = connection.createStatement();
 		

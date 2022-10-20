@@ -11,7 +11,7 @@ import br.com.comex.sql.modelo.dao.DAOPedido;
 
 public class MainDAOPedido {
 	public static void main(String[] args) throws SQLException {
-		Connection connection = new ConnectionFactory().getConnection();
+		Connection connection = new ConnectionFactory().criarConexao();
 		
 		SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
 		Cliente cliente1 = new Cliente(8);

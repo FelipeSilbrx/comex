@@ -11,7 +11,7 @@ import br.com.comex.sql.modelo.dao.DAOCategoria;
 public class MainDAOCategoria {
 	public static void main(String[] args) throws SQLException {
 
-		Connection connection = new ConnectionFactory().getConnection();
+		Connection connection = new ConnectionFactory().criarConexao();
 		
 		Categoria categoria1 = new Categoria("Informatica",Status.ATIVA);
 		Categoria categoria2 = new Categoria("Moveis",Status.INATIVA);

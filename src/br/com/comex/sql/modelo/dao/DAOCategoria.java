@@ -9,13 +9,12 @@ import java.util.List;
 
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Categoria.Status;
-import br.com.comex.sql.factory.ConnectionFactory;
 
 public class DAOCategoria {
 	private Connection connection;
 
-	public DAOCategoria(Connection connection) throws SQLException {
-		this.connection = new ConnectionFactory().getConnection();
+	public DAOCategoria(Connection connection) {
+		this.connection = connection;
 	}
 
 	public void salvarCategoria(Categoria categoria) {

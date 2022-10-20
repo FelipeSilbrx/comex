@@ -12,7 +12,7 @@ import br.com.comex.sql.modelo.dao.DAOProduto;
 public class MainDAOProduto {
 	public static void main(String[] args) throws SQLException {
 
-		Connection connection = new ConnectionFactory().getConnection();
+		Connection connection = new ConnectionFactory().criarConexao();
 
 		Categoria informatica = new Categoria(214);
 		Categoria livros = new Categoria(215);

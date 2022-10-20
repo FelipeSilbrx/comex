@@ -7,15 +7,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.comex.sql.factory.ConnectionFactory;
 import br.com.comex.modelo.Cliente;
 
 public class DAOCliente {
 	private Connection connection;
 
-	public DAOCliente(Connection connection) throws SQLException {
-		this.connection = new ConnectionFactory().getConnection();
+	public DAOCliente(Connection connection) {
+		this.connection = connection;
 	}
+
 
 	public void salvarCliente(Cliente cliente) throws SQLException {
 		String sql = "INSERT INTO COMEX.CLIENTE( nome, cpf, telefone, rua, numero, complemento, bairro, cidade, uf)"

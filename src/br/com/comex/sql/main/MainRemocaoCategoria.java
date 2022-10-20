@@ -10,7 +10,7 @@ import br.com.comex.sql.factory.ConnectionFactory;
 public class MainRemocaoCategoria {
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
-		Connection connection = connectionFactory.getConnection();
+		Connection connection = connectionFactory.criarConexao();
 		
 		PreparedStatement stm = connection.prepareStatement("DELETE FROM COMEX.CATEGORIA WHERE STATUS = ?");
 		stm.setString(1,String.valueOf(Status.INATIVA));

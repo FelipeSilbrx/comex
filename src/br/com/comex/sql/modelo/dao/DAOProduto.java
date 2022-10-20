@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.comex.sql.factory.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.TipoProduto;
@@ -15,8 +14,8 @@ import br.com.comex.modelo.TipoProduto;
 public class DAOProduto {
 	private Connection connection;
 
-	public DAOProduto(Connection connection) throws SQLException {
-		this.connection = new ConnectionFactory().getConnection();
+	public DAOProduto(Connection connection) {
+		this.connection = connection;
 	}
 
 	public void salvarProduto(Produto produto) throws SQLException {
