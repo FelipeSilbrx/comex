@@ -15,7 +15,7 @@ public class Produto implements ValorQuantidade {
 	protected String descricao;
 	protected double preco_unitario;
 	protected int qtd_estoque;
-	public Categoria categoriaProduto;
+	public Categoria categoria_produto;
 	protected TipoProduto tipo;
 
 	public int getId() {
@@ -42,7 +42,7 @@ public class Produto implements ValorQuantidade {
 	}
 
 	public Categoria getCategoriaProduto() {
-		return this.categoriaProduto;
+		return this.categoria_produto;
 	}	
 
 	public double CalcularValorEstoque() {
@@ -82,7 +82,7 @@ public class Produto implements ValorQuantidade {
 	}
 
 	public void setCategoriaProduto(Categoria categoriaProduto) {
-		this.categoriaProduto = categoriaProduto;
+		this.categoria_produto = categoriaProduto;
 	}
 
 	public void setTipo(TipoProduto tipo) {
@@ -101,7 +101,8 @@ public class Produto implements ValorQuantidade {
 		
 		this.id = id;
 	}
-
+	public Produto() {
+	}
 	public Produto(String nome, double preco_unitario, int qtd_estoque, Categoria categoriaProduto) {
 
 		
@@ -127,7 +128,7 @@ public class Produto implements ValorQuantidade {
 		this.nome = nome;
 		this.preco_unitario = preco_unitario;
 		this.qtd_estoque = qtd_estoque;
-		this.categoriaProduto = categoriaProduto;
+		this.categoria_produto = categoriaProduto;
 
 	}
 
@@ -156,7 +157,7 @@ public class Produto implements ValorQuantidade {
 		this.preco_unitario = preco_unitario;
 		this.descricao = descricao;
 		this.qtd_estoque = qtd_estoque;
-		this.categoriaProduto = categoriaProduto;
+		this.categoria_produto = categoriaProduto;
 		this.tipo = tipo;
 
 	}
@@ -165,7 +166,7 @@ public class Produto implements ValorQuantidade {
 	public String toString() {
 		return "\nProduto: " + "\nId: " + getId() + "\nNome do produto: " + getNome() + "\nValor do Produto: "
 				+ getPrecoUnitario() + "\nQuantidade de estoque: " + getQtdEstoque() + "\nCategoria: "
-				+ categoriaProduto.getNome() + "\nValor total do estoque: " + CalcularValorEstoque()
+				+ categoria_produto.getNome() + "\nValor total do estoque: " + CalcularValorEstoque()
 				+ "\nValor do Imposto: " + CalcularImpostoUnitario();
 	}
 
