@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.Categoria.Status;
+import br.com.comex.modelo.enun.TipoStatus;
 
 public class DAOCategoria {
 	private Connection connection;
@@ -82,8 +82,7 @@ public class DAOCategoria {
 	}
 
 	private Categoria populaCategoria(ResultSet registros) throws SQLException {
-
-		Categoria categoria = new Categoria(registros.getString("NOME"), Status.valueOf(registros.getString("STATUS")));
+		Categoria categoria = new Categoria(registros.getString("NOME"),TipoStatus.valueOf(registros.getString("STATUS")));
 
 		categoria.setId(registros.getInt("ID"));
 		return categoria;

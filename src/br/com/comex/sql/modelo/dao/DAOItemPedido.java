@@ -9,7 +9,7 @@ import java.util.List;
 
 import br.com.comex.modelo.ItemPedido;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.TipoDesconto;
+import br.com.comex.modelo.enun.TipoDesconto;
 import br.com.comex.modelo.Pedido;
 
 public class DAOItemPedido {

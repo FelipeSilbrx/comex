@@ -2,19 +2,19 @@ package br.com.comex.main;
 
 import java.text.SimpleDateFormat;
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.Categoria.Status;
 import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.Pedido;
 import br.com.comex.modelo.Produto;
+import br.com.comex.modelo.enun.TipoStatus;
 
 public class MainItemPedido {
 	public static void main(String[] args) {
 		try {
 			SimpleDateFormat spf = new SimpleDateFormat("dd/MM/yyyy");
 
-			Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
-			Categoria moveis = new Categoria("MÓVEIS", Status.INATIVA);
-			Categoria livros = new Categoria("LIVROS", Status.ATIVA);
+			Categoria informatica = new Categoria("INFORMÁTICA", TipoStatus.ATIVA);
+			Categoria moveis = new Categoria("MÓVEIS", TipoStatus.INATIVA);
+			Categoria livros = new Categoria("LIVROS", TipoStatus.ATIVA);
 
 			Produto produto1 = new Produto( "Notebook Samsung", 3523.00, 80, informatica);
 			Produto produto2 = new Produto( "Clean Architecture", 102.90, 52, livros);

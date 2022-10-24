@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.TipoProduto;
+import br.com.comex.modelo.enun.TipoProduto;
 import br.com.comex.sql.factory.ConnectionFactory;
 import br.com.comex.sql.modelo.dao.DAOProduto;
 

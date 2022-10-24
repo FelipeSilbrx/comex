@@ -1,4 +1,4 @@
-package br.com.comex.modelo;
+package br.com.comex.funcao;
 
 import java.util.HashSet;
 import java.util.List;

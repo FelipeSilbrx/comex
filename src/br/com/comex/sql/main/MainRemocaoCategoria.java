@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.comex.modelo.Categoria.Status;
+import br.com.comex.modelo.enun.TipoStatus;
 import br.com.comex.sql.factory.ConnectionFactory;
 
 public class MainRemocaoCategoria {
@@ -13,7 +13,7 @@ public class MainRemocaoCategoria {
 		Connection connection = connectionFactory.criarConexao();
 		
 		PreparedStatement stm = connection.prepareStatement("DELETE FROM COMEX.CATEGORIA WHERE STATUS = ?");
-		stm.setString(1,String.valueOf(Status.INATIVA));
+		stm.setString(1,String.valueOf(TipoStatus.INATIVA));
 		stm.execute( );
 		
 		Integer linhasModificadas = stm.getUpdateCount();

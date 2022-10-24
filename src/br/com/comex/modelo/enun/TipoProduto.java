@@ -1,4 +1,4 @@
-package br.com.comex.modelo;
+package br.com.comex.modelo.enun;
 
 public enum TipoProduto {
 

@@ -1,5 +1,7 @@
 package br.com.comex.modelo;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class Pedido {
 
 	

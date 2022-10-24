@@ -1,14 +1,16 @@
 package br.com.comex.modelo;
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.comex.modelo.enun.TipoStatus;
+
+@XmlRootElement
 public class Categoria {
-	public enum Status {
-		ATIVA, INATIVA
-		}
+	
 	
 	protected int id;;
 	protected String nome;
-	protected Status status = Status.ATIVA;
+	protected TipoStatus status = TipoStatus.ATIVA;
 
 	public int getId() {
 		return id;
@@ -18,7 +20,7 @@ public class Categoria {
 		return nome;
 	}
 
-	public Status getStatus() {
+	public TipoStatus getStatus() {
 		return status;
 	}
 	public void setId(int id) {
@@ -30,23 +32,32 @@ public class Categoria {
 		
 		this.id = id;
 	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
+	public void setStatus(TipoStatus status) {
+		this.status = status;
+	}
 
-	public Categoria(String nome, Status ativa) {			
+	public Categoria() {
 		
-		if(nome==null || nome.substring(0,1).matches("[0-9]*")){
-			throw new IllegalArgumentException(nome+". Erro: Não pode começar com números de 0 à 9");
+	}
+	public Categoria(String nome, TipoStatus ativa) {			
+		
+		/*if(nome==null || nome.substring(0,1).matches("[0-9]*")){
+			throw new ComexException(nome+". Erro: Não pode começar com números de 0 à 9");
 		}
-		/*if ( id < 0) {
+		/if ( id < 0) {
 		
-			 throw new IllegalArgumentException(nome+". Erro: Id deve ser maior que 0");
-		}*/
+		
 		if (nome.length()<=3) {
-			 throw new IllegalArgumentException(nome+". Erro: Nome da categoria deve ser maior que 3 caracteres");
+			 throw new ComexException(nome+". Erro: Nome da categoria deve ser maior que 3 caracteres");
 		}
-		if (status==null || (Status.ATIVA != status) && (Status.INATIVA != status)) {
-			 throw new IllegalArgumentException(nome+". Erro: Status diferente de Ativa e Inativa");
-		}		
+		if (status==null || (TipoStatus.ATIVA != status) && (TipoStatus.INATIVA != status)) {
+			 throw new ComexException(nome+". Erro: Status diferente de Ativa e Inativa");
+		}*/		
 		this.nome = nome;
 		this.status = ativa;		
 		
@@ -54,10 +65,7 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria " + getNome() + " ("+getId() +" - "+getStatus() +")";
+		return "\nCategoria " + getNome() + " ("+getId() +" - "+getStatus() +")";
 	}
-
-	
-	
 
 }

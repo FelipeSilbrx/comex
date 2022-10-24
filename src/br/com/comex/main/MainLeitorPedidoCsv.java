@@ -6,10 +6,10 @@ import java.text.NumberFormat;
 
 import br.com.comex.csv.LeitorPedidosCsv;
 import br.com.comex.csv.PedidoCsv;
-import br.com.comex.modelo.MontanteTotalVendas;
-import br.com.comex.modelo.PedidoMaisBaratoEMaisCaro;
-import br.com.comex.modelo.TotalCategorias;
-import br.com.comex.modelo.TotalProdutosVendidos;
+import br.com.comex.funcao.MontanteTotalVendas;
+import br.com.comex.funcao.PedidoMaisBaratoEMaisCaro;
+import br.com.comex.funcao.TotalCategorias;
+import br.com.comex.funcao.TotalProdutosVendidos;
 
 
 public class MainLeitorPedidoCsv {

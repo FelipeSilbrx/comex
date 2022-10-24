@@ -1,5 +1,10 @@
 package br.com.comex.modelo;
+import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.comex.funcao.ValorQuantidade;
+import br.com.comex.modelo.enun.TipoDesconto;
+
+@XmlRootElement
 public class ItemPedido implements ValorQuantidade {
 
 	

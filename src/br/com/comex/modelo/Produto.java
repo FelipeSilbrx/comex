@@ -1,7 +1,12 @@
 package br.com.comex.modelo;
 
 
+import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.comex.funcao.ValorQuantidade;
+import br.com.comex.modelo.enun.TipoProduto;
+
+@XmlRootElement
 public class Produto implements ValorQuantidade {
 
 	
@@ -50,6 +55,38 @@ public class Produto implements ValorQuantidade {
 
 	public double getPreco() {
 		return this.preco_unitario;
+	}
+
+	public double getPreco_unitario() {
+		return preco_unitario;
+	}
+
+	public int getQtd_estoque() {
+		return qtd_estoque;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setPreco_unitario(double preco_unitario) {
+		this.preco_unitario = preco_unitario;
+	}
+
+	public void setQtd_estoque(int qtd_estoque) {
+		this.qtd_estoque = qtd_estoque;
+	}
+
+	public void setCategoriaProduto(Categoria categoriaProduto) {
+		this.categoriaProduto = categoriaProduto;
+	}
+
+	public void setTipo(TipoProduto tipo) {
+		this.tipo = tipo;
 	}
 
 	public int getQuantidade() {
