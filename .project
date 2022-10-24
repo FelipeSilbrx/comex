@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/xml comex soupui/ComexWS-soapui-project.xml</name>
+			<type>1</type>
+			<location>C:/Users/felipe.silveira/Documents/ComexWS-soapui-project.xml</location>
+		</link>
+	</linkedResources>
 </projectDescription>
