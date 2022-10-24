@@ -68,7 +68,7 @@ public class ComexWS {
 		return produtos;
 
 	}
-	@WebMethod(operationName = "AdicionartProduto")
+	@WebMethod(operationName = "AdicionarProduto")
 	@WebResult(name = "produto")
 	public Produto adicionarProduto(@WebParam(name = "produto") Produto produto) throws SQLException {
 		daoProduto.salvarProduto(produto);
