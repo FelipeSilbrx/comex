@@ -6,7 +6,7 @@ import br.com.comex.ws.ComexWS;
 
 public class MainComexWS {
 	public static void main(String[] args) {		
-		String url = "http://localhost:8080/ComexWS";
+		String url = "http://0.0.0.0:8080/ComexWS";
 	    ComexWS service = new ComexWS();
 
 	    System.out.println("Servico Rodando" + url + "?wsdl");
