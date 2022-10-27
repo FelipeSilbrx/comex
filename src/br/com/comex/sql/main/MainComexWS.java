@@ -1,6 +1,8 @@
-package br.com.comex.ws;
+package br.com.comex.sql.main;
 
 import javax.xml.ws.Endpoint;
+
+import br.com.comex.ws.ComexWS;
 
 public class MainComexWS {
 	public static void main(String[] args) {		
